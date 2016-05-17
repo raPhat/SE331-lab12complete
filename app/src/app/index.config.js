@@ -36,7 +36,7 @@
       restrict: 'E',
       replace: true,
     }
-  }).directive('header', function () {
+  }).directive('headerNavbar', function () {
     return {
       templateUrl: 'app/admin/header.html',
       restrict: 'E',
