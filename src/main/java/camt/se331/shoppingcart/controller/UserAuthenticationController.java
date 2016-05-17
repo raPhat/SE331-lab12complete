@@ -1,7 +1,11 @@
 package camt.se331.shoppingcart.controller;
 
+import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.entity.Role;
+import camt.se331.shoppingcart.entity.User;
 import camt.se331.shoppingcart.entity.transfer.TokenTransfer;
 import camt.se331.shoppingcart.entity.transfer.UserTransfer;
+import camt.se331.shoppingcart.service.UserService;
 import camt.se331.shoppingcart.service.util.TokenUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,10 +15,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 
 @CrossOrigin
@@ -23,6 +30,8 @@ import java.util.Map;
 public class UserAuthenticationController {
     @Autowired
     UserDetailsService userDetailsService;
+    @Autowired
+    UserService userService;
 
     @Autowired
     private AuthenticationManager authenticationManager;
@@ -77,5 +86,15 @@ public class UserAuthenticationController {
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
         return new TokenTransfer(TokenUtils.createToken(userDetails));
     }
+
+    @RequestMapping(value = "",method = RequestMethod.POST)
+    public @ResponseBody User add(@RequestBody User user, BindingResult bindingResult){
+        user.setUsername( user.getEmail() );
+        Set<Role> roles = new HashSet<>();
+        roles.add(new Role("user"));
+        user.setRoles(roles);
+        return userService.addRetailUser(user);
+    }
+
 }
 

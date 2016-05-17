@@ -1,0 +1,42 @@
+<div class="coverArticle">
+  <div class="textProduct">
+    <div class="text">
+      <span class="glyphicon glyphicon-tags"></span> PRODUCTS
+    </div>
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for..." ng-model="pdname">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="vm.searchProduct(pdname)">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+      </span>
+    </div><!-- /input-group -->
+  </div>
+</div>
+
+<div class="containerArticle">
+  <div class="container">
+
+    <div class="row collectCard">
+      <div class="col-md-3 col-sm-6" ng-repeat="product in vm.products">
+        <div class="card">
+          <div class="cover">
+            <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-info-sign"></span> Information</a>
+            <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Buy</a>
+          </div>
+          <!--<div class="ribbon"><span>RECOMMEND</span></div>-->
+          <div class="detail">
+            <div class="price">{{ product.totalPrice }} <span>BAHT</span></div>
+            <div class="name">
+              {{ product.name }}
+            </div>
+          </div>
+          <div class="img"
+               style="background-image: url('data:{{product.images[0].contentType}};base64,{{product.images[0].content}}')"></div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

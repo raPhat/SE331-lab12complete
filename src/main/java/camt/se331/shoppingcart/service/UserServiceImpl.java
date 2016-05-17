@@ -43,7 +43,10 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
-
+    @Override
+    public User addRetailUser(User user) {
+        return userRepository.save(user);
+    }
 
 
 }
