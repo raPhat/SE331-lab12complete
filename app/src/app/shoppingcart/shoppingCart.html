@@ -1,56 +1,86 @@
+<div class="coverArticle">
+  <div class="textArticle">
+    <span class="glyphicon glyphicon-shopping-cart"></span>
+    SHOPPING CART
+  </div>
+</div>
 
-<div class="panel panel-default">
+<div class="container">
+  <div class="panel panel-default shoppingCartPanel">
     <!-- Default panel contents -->
     <div class="panel-heading">ShoppingCart</div>
     <div class="panel-body">
-        ShoppingCart Details
+
+      <div class="list-group" ng-show="vm.orders">
+        <div ng-repeat=" order in vm.orders ">
+          <a href="#" class="list-group-item active">
+            <h4 class="list-group-item-heading">
+              <span class="glyphicon glyphicon-tags"></span>
+              <span class="index">{{ $index+1 }}</span>
+              <span class="date">{{ order.purchaseDate | date:"MM/dd/yyyy 'at' h:mma"}}</span>
+            </h4>
+          </a>
+          <div class="list-group-item">
+            <p class="list-group-item-text">
+            <div class="alert alert-success" role="alert">...</div>
+            <ul>
+              <li ng-repeat="selectedProducts in order.selectedProducts">
+                {{ selectedProducts.product.name }}
+              </li>
+            </ul>
+            </p>
+            <h5 class="list-group-item-heading">List group item heading</h5>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <form name="editform" novalidate>
-        <div class="form-group">
-            <!-- Table -->
-            <table class="table table-hover">
-                <tr>
-                    <th>#</th>
-                    <th translate>listProduct.name </th>
-                    <th translate>listProduct.description</th>
-                    <th class="text-right" translate>listProduct.amount</th>
-                    <th class="text-right" translate>listProduct.netPrice</th>
-                    <th class="text-right" translate>listProduct.price</th>
-                  <th class="text-right" translate>listProduct.remove</th>
+    <form name="editform" novalidate ng-show="vm.cart.length>0">
+      <div class="form-group">
+        <!-- Table -->
+        <table class="table table-striped">
+          <tr>
+            <th>#</th>
+            <th translate>listProduct.name</th>
+            <th width="30%" class="text-right" translate>listProduct.amount</th>
+            <th class="text-right" translate>listProduct.price</th>
+            <th width="75" class="text-right" translate>listProduct.remove</th>
 
 
-                </tr>
-                <tr ng-repeat="selectedProduct in vm.cart.selectedProducts">
-                    <td>{{$index+1}}</td>
-                    <td>{{selectedProduct.product.name}}</td>
-                    <td>{{selectedProduct.product.description}}</td>
-                    <td class=" col-xs-1"><input ng-model="selectedProduct.amount" class="form-control text-right" id="selectedproductamount"
-                               placeholder="amount" name="productdescription" required/></td>
-                    <td class="text-right">{{selectedProduct.product.netPrice | number:2}}</td>
-                    <td class="text-right">{{vm.totalEach($index) |number:2}}</td>
-                  <td class="text-right"><a><span ng-click="vm.removeProduct($index)">remove</span></a></td>
-                </tr>
-                <tr>
-                    <th></th>
-                    <th><strong translate>listProduct.total</strong> </th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th class="text-right">{{vm.total() | number :2}}</th>
+          </tr>
+          <tr ng-repeat="selectedProduct in vm.cart.selectedProducts">
+            <td>{{$index+1}}</td>
+            <td>{{selectedProduct.product.name}}</td>
+            <td class=" col-xs-1">
+              <div class="input-group">
+                <input type="number" class="form-control" ng-model="selectedProduct.amount">
+                <span class="input-group-addon"> x {{ selectedProduct.product.totalPrice }} </span>
+              </div>
+            </td>
+            <td class="text-right">{{vm.totalEach($index) |number:2}}</td>
+            <td class="text-right"><a><span ng-click="vm.removeProduct($index)">remove</span></a></td>
+          </tr>
+          <tr>
+            <th></th>
+            <th><strong translate>listProduct.total</strong></th>
+            <th></th>
+            <th></th>
+            <th class="text-right">{{vm.total() | number :2}}</th>
 
-                </tr>
+          </tr>
 
-            </table>
-            <div class="panel-body text-center">
-                <a href ng_click="vm.updateCart()" class="btn btn-primary ">update cart</a>
-              <a href ng_click="vm.saveCart(vm.cart)" class="btn btn-primary ">save cart</a>
-            </div>
+        </table>
+        <div class="panel-body text-center">
+          <a href ng_click="vm.updateCart()" class="btn btn-primary ">update cart</a>
+          <a href ng_click="vm.saveCart(vm.cart)" class="btn btn-primary ">save cart</a>
         </div>
+      </div>
     </form>
     <div class="alert alert-success alert-dismissible" role="alert" ng-show="cartUpdateSuccess">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> Success edit the product
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span></button>
+      <strong>Success!</strong> Success edit the product
     </div>
+  </div>
 </div>
+
