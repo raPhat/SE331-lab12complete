@@ -19,7 +19,7 @@
       }).
       when('/product', {
         templateUrl: 'app/product/products.html',
-        controller: 'ProductController',
+        controller: 'listProductController',
         controllerAs: 'vm'
       }).
       when('/addProduct', {
