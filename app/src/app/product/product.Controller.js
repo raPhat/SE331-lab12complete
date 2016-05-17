@@ -73,16 +73,23 @@
     }
 
     vm.addToCart = function (product) {
-      product.images = null;
-      cartManagement.addToCart({id:product.id},$rootScope.shoppingCart, function (shoppingCart) {
-        //success event
-        $rootScope.shoppingCart = shoppingCart;
-        $location.path("shoppingCart")
 
-      }, function () {
-        // fail event
-      })
+      var answer = confirm("Do you want to add the product to cart?");
+      if (answer) {
+        cartManagement.addToCart({id:product.id},$rootScope.shoppingCart, function (shoppingCart) {
+          //success event
+          $rootScope.shoppingCart = shoppingCart;
+          console.log($rootScope.shoppingCart);
 
+        }, function () {
+          // fail event
+        })
+      }
+
+    }
+    vm.removeProduct = function(index){
+      alert(1);
+      $rootScope.shoppingCart.selectedProducts.splice(index, 1);
     }
 
 

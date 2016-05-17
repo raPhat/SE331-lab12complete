@@ -44,7 +44,7 @@
       }).
       when('/shoppingCart', {
         templateUrl: 'app/shoppingcart/shoppingCart.html',
-        controller: 'showShoppingCartController',
+        controller: 'shoppingCartController',
         controllerAs: 'vm'
       }).
       when('/admin/', {

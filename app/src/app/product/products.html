@@ -22,7 +22,7 @@
         <div class="card">
           <div class="cover">
             <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-info-sign"></span> Information</a>
-            <a href="#" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Buy</a>
+            <button ng-show="user" class="btn btn-success" ng-click="vm.addToCart(product)"><span class="glyphicon glyphicon-plus-sign"></span> Buy</button>
           </div>
           <!--<div class="ribbon"><span>RECOMMEND</span></div>-->
           <div class="detail">

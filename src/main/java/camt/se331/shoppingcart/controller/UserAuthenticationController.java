@@ -2,6 +2,7 @@ package camt.se331.shoppingcart.controller;
 
 import camt.se331.shoppingcart.entity.Product;
 import camt.se331.shoppingcart.entity.Role;
+import camt.se331.shoppingcart.entity.ShoppingCart;
 import camt.se331.shoppingcart.entity.User;
 import camt.se331.shoppingcart.entity.transfer.TokenTransfer;
 import camt.se331.shoppingcart.entity.transfer.UserTransfer;
@@ -94,6 +95,11 @@ public class UserAuthenticationController {
         roles.add(new Role("user"));
         user.setRoles(roles);
         return userService.addRetailUser(user);
+    }
+
+    @RequestMapping(value = "/find/{username}",method = RequestMethod.GET)
+    public @ResponseBody Set<ShoppingCart> byUsername(@PathVariable("username") String username){
+        return userService.findByUserName(username).getShoppingCarts();
     }
 
 }

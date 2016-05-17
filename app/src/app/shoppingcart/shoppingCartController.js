@@ -7,21 +7,28 @@
 
 
   /** @ngInject */
-  function ShoppingCartController(shoppingCartService,cartManagement,$scope, $rootScope, $routeParams,$log ) {
+  function ShoppingCartController(shoppingCartService,cartManagement,$scope, $rootScope, $cookies,$log, queryUserService, $http ) {
     var vm = this;
+
+    var user = $cookies.get('user');
+
 
     if ($rootScope.shoppingCart != null){
       vm.cart = $rootScope.shoppingCart;
-    }else {
-      var id = $routeParams.id;
-      shoppingCartService.get({id: id}, function (data) {
-        vm.cart = data;
-      })
     }
+
     $scope.$on('$locationChangeStart', function () {
       $rootScope.cartUpdateSuccess = false;
 
     });
+
+
+    queryUserService.query({ id: user }, function(data) {
+      vm.orders = data;
+      console.log(vm.orders);
+    });
+
+
 
     vm.updateCart = function () {
         $rootScope.cartUpdateSuccess = true;
@@ -31,7 +38,13 @@
       return vm.cart.selectedProducts[index].product.totalPrice * vm.cart.selectedProducts[index].amount;
     }
 
+    vm.NewTotalEach = function (index) {
+      console.log(1);
+      return $rootScope.shoppingCart.selectedProducts[index].product.totalPrice * $rootScope.shoppingCart.selectedProducts[index].amount;
+    };
+
     vm.saveCart = function (cart){
+      console.log(cart);
       cart.user = {};
       cart.user.username = $rootScope.user.name;
       cartManagement.saveCart(cart,function(returnData){
@@ -51,8 +64,6 @@
       return total;
     }
 
-    vm.removeProduct = function(index){
-      $rootScope.shoppingCart.selectedProducts.splice(index, 1);
-    }
+
   }
 })();

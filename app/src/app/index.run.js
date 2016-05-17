@@ -36,6 +36,7 @@
       delete $rootScope.user;
       delete $rootScope.authToken;
       $cookies.remove('authToken');
+      $cookies.remove('user');
       $location.path("/")
 
       // remove shopping Cart
@@ -50,6 +51,7 @@
       $rootScope.authToken = authToken;
       UserService.get(function (user) {
         $rootScope.user = user;
+        $cookies.put('user', user.name);
         $location.path(originalPath);
       })
     }
