@@ -76,10 +76,10 @@
 
       var answer = confirm("Do you want to add the product to cart?");
       if (answer) {
+        console.log($rootScope.shoppingCart);
         cartManagement.addToCart({id:product.id},$rootScope.shoppingCart, function (shoppingCart) {
           //success event
           $rootScope.shoppingCart = shoppingCart;
-          console.log($rootScope.shoppingCart);
 
         }, function () {
           // fail event

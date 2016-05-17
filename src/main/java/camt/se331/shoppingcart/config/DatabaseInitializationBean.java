@@ -1,6 +1,5 @@
 package camt.se331.shoppingcart.config;
 
-import camt.se331.shoppingcart.dao.ShoppingCartDao;
 import camt.se331.shoppingcart.entity.*;
 import camt.se331.shoppingcart.repository.ProductRepository;
 import camt.se331.shoppingcart.repository.ShoppingCartRepository;
@@ -23,7 +22,6 @@ public class DatabaseInitializationBean implements InitializingBean {
     ProductRepository productRepository;
     @Autowired
     ShoppingCartRepository shoppingCartRepository;
-
     @Autowired
     UserRepository userRepository;
     @Override
@@ -57,10 +55,13 @@ public class DatabaseInitializationBean implements InitializingBean {
         shoppingCart.setId(1L);
         shoppingCartRepository.save(shoppingCart);
 
+
+
         // add user
         Role adminRole = new Role("admin");
-        Role userRole = new Role("user");
-        Role userRole2 = new Role("user");
+        Role userRole = new Role("retail");
+        Role userRole2 = new Role("wholesale");
+        Role userR = new Role("user");
 
 
         User admin = new User();
@@ -95,5 +96,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         admin.setRoles(roles);
         user.setRoles(roles2);
         user2.setRoles(roles3);
+
+
     }
 }

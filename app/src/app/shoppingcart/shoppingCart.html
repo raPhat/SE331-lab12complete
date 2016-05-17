@@ -34,8 +34,21 @@
         </div>
       </div>
     </div>
+    <div class="container-fluid" ng-show="vm.orders.length==0">
+      <div class="alert alert-info" role="alert">
+        ไม่มีออเดอร์
+      </div>
+    </div>
 
-    <form name="editform" novalidate ng-show="vm.cart.length>0">
+    <hr/>
+
+
+    <div class="container-fluid" ng-show="vm.orders.length==0">
+      <div class="alert alert-warning" role="alert" ng-show="{{vm.cart.selectedProducts === undefined}}">
+        ไม่มีสินค้าอยู่ในตะกร้า
+      </div>
+    </div>
+    <form name="editform" novalidate ng-show="vm.cart.selectedProducts.length>0">
       <div class="form-group">
         <!-- Table -->
         <table class="table table-striped">

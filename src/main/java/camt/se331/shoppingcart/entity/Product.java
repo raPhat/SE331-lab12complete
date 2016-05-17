@@ -4,7 +4,9 @@ import org.hibernate.annotations.*;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -18,6 +20,7 @@ public class Product implements Comparable{
     String name;
     String description;
     Double totalPrice;
+
 
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)

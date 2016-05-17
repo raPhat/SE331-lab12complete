@@ -29,7 +29,6 @@
     });
 
 
-
     vm.updateCart = function () {
         $rootScope.cartUpdateSuccess = true;
     }

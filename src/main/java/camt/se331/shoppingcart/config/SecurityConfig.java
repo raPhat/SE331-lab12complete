@@ -52,11 +52,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .authenticationEntryPoint(authenticationEntryPoint)
                     .and()
                 .authorizeRequests()
-                    .antMatchers(HttpMethod.OPTIONS,"/**").permitAll()
+                    .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                     .antMatchers(HttpMethod.POST, "/product/**").hasAuthority("admin")//.access("hasRole('admin')")
                     .antMatchers(HttpMethod.PUT, "/product/**").hasAuthority("admin")
                     .antMatchers(HttpMethod.DELETE, "/product/**").hasAuthority("admin")
-                    .antMatchers("/shoppingcart/**").hasAuthority("user")
+                    .antMatchers("/shoppingcart/**").permitAll()
                 .and()
                 .addFilterBefore(authenticationTokenProcessingFilter, UsernamePasswordAuthenticationFilter.class)
         ;
