@@ -57,6 +57,21 @@
         controller: 'AdminController',
         controllerAs: 'vm'
       }).
+      when('/admin/MemberManagement', {
+        templateUrl: 'app/admin/MemberManagement.html',
+        controller: 'AdminController',
+        controllerAs: 'vm'
+      }).
+      when('/admin/OrderManagement', {
+        templateUrl: 'app/admin/OrderManagement.html',
+        controller: 'AdminController',
+        controllerAs: 'vm'
+      }).
+      when('/admin/ArticleManagement', {
+        templateUrl: 'app/admin/ArticleManagement.html',
+        controller: 'AdminController',
+        controllerAs: 'vm'
+    }).
       otherwise({redirectTo: '/'});
 
   }

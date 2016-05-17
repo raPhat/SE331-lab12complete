@@ -1,0 +1,717 @@
+<div>
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">Order management</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <div class="row">
+
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3 class="page-header">Order list</h3>
+        </div>
+        <div class="panel-body">
+          <uib-tabset active="activeJustified" justified="true">
+            <uib-tab index="0" heading="All">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+            <uib-tab index="1" heading="WaitingForCalculation">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>2</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+            <uib-tab index="2" heading="WaitingForAgreement">
+
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </uib-tab>
+            <uib-tab index="3" heading="TransactionValidating">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+            <uib-tab index="4" heading="TransactionValid">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+            <uib-tab index="5" heading="InProgress">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+            <uib-tab index="6" heading="Delivered">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+            <uib-tab index="7" heading="Success">
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+          </uib-tabset>
+          <!-- Modal -->
+          <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h3 class="modal-title" id="myModalLabel">Order detail</h3>
+                </div>
+                <div class="modal-body">
+                  <h3 class="text-center">Purchase code :21312312321</h3>
+                  <table class="table table-hover" id="tblGrid">
+                    <thead id="tblHead">
+                    <tr>
+                      <th>#</th>
+                      <th>Product name</th>
+                      <th>Product Price</th>
+                      <th>Amount</th>
+                      <th class="text-right">Total price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Iphone3</td>
+                      <td>45001</td>
+                      <td>3</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Iphone3</td>
+                      <td>45001</td>
+                      <td>3</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Iphone3</td>
+                      <td>45001</td>
+                      <td>3</td>
+                      <td></td>
+
+                    </tr>
+                    </tbody>
+                  </table>
+
+                  <div class="text-right">99999</div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                </div>
+
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+          <!-- /.modal -->
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+
+</div>
