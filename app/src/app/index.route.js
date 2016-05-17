@@ -71,7 +71,22 @@
         templateUrl: 'app/admin/ArticleManagement.html',
         controller: 'AdminController',
         controllerAs: 'vm'
-    }).
+      }).
+      when('/admin/ContactManagement', {
+        templateUrl: 'app/admin/ContactManagement.html',
+        controller: 'AdminController',
+        controllerAs: 'vm'
+     }).
+      when('/admin/PaymentManagement', {
+        templateUrl: 'app/admin/PaymentManagement.html',
+        controller: 'AdminController',
+        controllerAs: 'vm'
+     }).
+      when('/admin/StatisticManagement', {
+        templateUrl: 'app/admin/StatisticManagement.html',
+        controller: 'AdminController',
+        controllerAs: 'vm'
+     }).
       otherwise({redirectTo: '/'});
 
   }
