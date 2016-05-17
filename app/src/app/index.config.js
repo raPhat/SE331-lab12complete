@@ -7,92 +7,24 @@
     .config(configCompilerProvider)
     .config(configFlowFactoryProvider)
     .config(configFailRequestRedirect)
-    .directive('chat', function () {
-    return {
-      templateUrl: 'app/admin/chat.html',
-      restrict: 'E',
-      replace: true
-    }
-  }).directive('stats', function () {
-    return {
-      templateUrl: 'app/admin/stats.html',
-      restrict: 'E',
-      replace: true,
-      scope: {
-        'model': '=',
-        'comments': '@',
-        'number': '@',
-        'name': '@',
-        'colour': '@',
-        'details': '@',
-        'type': '@',
-        'goto': '@'
+    .directive('stats',function() {
+      return {
+        templateUrl:'app/admin/stats.html',
+        restrict:'E',
+        replace:true,
+        scope: {
+          'model': '=',
+          'comments': '@',
+          'number': '@',
+          'name': '@',
+          'colour': '@',
+          'details':'@',
+          'type':'@',
+          'goto':'@'
+        }
+
       }
-
-    }
-  }).directive('headerNotification', function () {
-    return {
-      templateUrl: 'app/admin/header-notification.html',
-      restrict: 'E',
-      replace: true,
-    }
-  }).directive('header', function () {
-    return {
-      templateUrl: 'app/admin/header.html',
-      restrict: 'E',
-      replace: true
-    }
-  }).directive('notifications', function () {
-    return {
-      templateUrl: 'app/admin/notifications.html',
-      restrict: 'E',
-      replace: true
-    }
-  }).directive('sidebarSearch', function () {
-    return {
-      templateUrl: 'app/admin/sidebar-search.html',
-      restrict: 'E',
-      replace: true,
-      scope: {},
-      controller: function ($scope) {
-        $scope.selectedMenu = 'home';
-      }
-    }
-  }).directive('sidebar', ['$location', function () {
-    return {
-      templateUrl: 'app/admin/sidebar.html',
-      restrict: 'E',
-      replace: true,
-      scope: {},
-      controller: function ($scope) {
-        $scope.selectedMenu = 'dashboard';
-        $scope.collapseVar = 0;
-        $scope.multiCollapseVar = 0;
-
-        $scope.check = function (x) {
-
-          if (x == $scope.collapseVar)
-            $scope.collapseVar = 0;
-          else
-            $scope.collapseVar = x;
-        };
-
-        $scope.multiCheck = function (y) {
-
-          if (y == $scope.multiCollapseVar)
-            $scope.multiCollapseVar = 0;
-          else
-            $scope.multiCollapseVar = y;
-        };
-      }
-    }
-  }]).directive('timeline', function () {
-    return {
-      templateUrl: 'app/admin/timeline.html',
-      restrict: 'E',
-      replace: true
-    }
-  });
+    });
 
 
   /** @ngInject */
@@ -131,17 +63,17 @@
   function configFailRequestRedirect($locationProvider, $httpProvider) {
     /* Register error provider that shows message on failed requests or redirects to login page on
      * unauthenticated requests */
-    $httpProvider.interceptors.push(function ($q, $rootScope, $location) {
+    $httpProvider.interceptors.push(function($q,$rootScope,$location){
       return {
-        'responseError': function (rejection) {
+        'responseError': function(rejection){
           var status = rejection.status;
           var config = rejection.config;
           var method = config.method;
           var url = config.url;
 
-          if (status == 401) {
+          if (status == 401){
             $location.path("/");
-          } else {
+          }else{
             $rootScope.error = method + " on " + url + " failed with status " + status;
           }
           return $q.reject(rejection);
@@ -158,14 +90,14 @@
       useAuthTokenHeader: true
     };
 
-    $httpProvider.interceptors.push(function ($q, $rootScope) {
+    $httpProvider.interceptors.push(function ($q,$rootScope){
       return {
-        'request': function (config) {
-          if (angular.isDefined($rootScope.authToken)) {
+        'request' : function(config){
+          if (angular.isDefined($rootScope.authToken)){
             var authToken = $rootScope.authToken;
-            if (exampleAppConfig.useAuthTokenHeader) {
+            if (exampleAppConfig.useAuthTokenHeader){
               config.headers['X-Auth-Token'] = authToken;
-            } else {
+            }else{
               config.url = config.url + "?token=" + authToken;
             }
           }

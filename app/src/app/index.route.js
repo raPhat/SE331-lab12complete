@@ -52,11 +52,6 @@
         controller: 'AdminController',
         controllerAs: 'vm'
       }).
-      when('/admin/ProductManagement', {
-        templateUrl: 'app/admin/ProductManagement.html',
-        controller: 'AdminController',
-        controllerAs: 'vm'
-      }).
       otherwise({redirectTo: '/'});
 
   }
