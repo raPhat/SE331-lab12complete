@@ -16,9 +16,9 @@ public class Lab11Application {
 class DBManager extends Thread {
 	public void run(){
 		System.setProperty("java.awt.headless", "false");
-		org.hsqldb.util.DatabaseManagerSwing.main(new String[] {
-				"--url",  "jdbc:hsqldb:mem:testdb", "--noexit"
-		});
+//		org.hsqldb.util.DatabaseManagerSwing.main(new String[] {
+//				"--url",  "jdbc:hsqldb:mem:testdb", "--noexit"
+//		});
 	}
 
 }

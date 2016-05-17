@@ -36,7 +36,7 @@
       delete $rootScope.user;
       delete $rootScope.authToken;
       $cookies.remove('authToken');
-      $location.path("/listProduct")
+      $location.path("/")
 
       // remove shopping Cart
       $rootScope.shoppingCart = {};
@@ -44,7 +44,7 @@
 
     /* Try getting valid user from cookie or go to login page */
     var originalPath = $location.path();
-    $location.path("/listProduct");
+    //$location.path("/listProduct");
     var authToken = $cookies.get('authToken');
     if (authToken != undefined) {
       $rootScope.authToken = authToken;

@@ -6,7 +6,25 @@
     .config(configTranslation)
     .config(configCompilerProvider)
     .config(configFlowFactoryProvider)
-    .config(configFailRequestRedirect);
+    .config(configFailRequestRedirect)
+    .directive('stats',function() {
+      return {
+        templateUrl:'app/admin/stats.html',
+        restrict:'E',
+        replace:true,
+        scope: {
+          'model': '=',
+          'comments': '@',
+          'number': '@',
+          'name': '@',
+          'colour': '@',
+          'details':'@',
+          'type':'@',
+          'goto':'@'
+        }
+
+      }
+    });
 
 
   /** @ngInject */
@@ -54,7 +72,7 @@
           var url = config.url;
 
           if (status == 401){
-            $location.path("/listProduct");
+            $location.path("/");
           }else{
             $rootScope.error = method + " on " + url + " failed with status " + status;
           }

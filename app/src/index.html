@@ -20,50 +20,134 @@
     <!-- endbuild -->
   </head>
   <body>
-  <div class="page-header">
-    <h1>CAMT
-      <small>Software Component Based Software Development</small>
-    </h1>
 
-  </div>
-  <div class="navbar navbar-default" ng-controller="LanguageController">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse">
-        <div ng-include src="'app/security/login.html'"></div>
-        <ul class="nav navbar-nav navbar-right">
-          <li ng-class="{'active':currentLocale== 'en'}"><a href="" ng-click="changeLanguage('en')">EN </a></li>
-          <li ng-class="{'active':currentLocale== 'fr'}"><a href="" ng-click="changeLanguage('fr')">FR</a></li>
-        </ul>
-      </div>
+  <div id="wrapperClient">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a href="#">
+            Start Bootstrap
+          </a>
+        </li>
+        <li>
+          <a href="#">Dashboard</a>
+        </li>
+        <li>
+          <a href="#">Shortcuts</a>
+        </li>
+        <li>
+          <a href="#">Overview</a>
+        </li>
+        <li>
+          <a href="#">Events</a>
+        </li>
+        <li>
+          <a href="#">About</a>
+        </li>
+        <li>
+          <a href="#">Services</a>
+        </li>
+        <li>
+          <a href="#">Contact</a>
+        </li>
+      </ul>
     </div>
-  </div>
-  <div class="container ng-hide" ng-show="initialized">
-    <div class="alert alert-danger" ng-show="error">{{error}}</div>
-  </div>
+    <!-- /#sidebar-wrapper -->
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-2">
-        <!-- Fixed left nav column -->
-        <div ng-include src="'app/component/leftnav.html'"></div>
+    <!--<div class="topGradient"></div>-->
+
+    <navbar class="wat-topBar">
+      <div class="container">
+        <div class="topLogo"></div>
+        <div class="topMenu">
+          <div class="row">
+            <div class="col-xs-12">
+              <ul>
+                <li class="smLogo">
+                  <img src="app/images/logo_sm.png" alt=""/>
+                </li>
+                <div class="leftMenu hidden-xs hidden-sm">
+                  <li>
+                    <a href="#/">
+                      <span class="glyphicon glyphicon-home"></span> HOME
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#/article">
+                      <span class="glyphicon glyphicon-blackboard"></span> ARTICLES
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#/product">
+                      <span class="glyphicon glyphicon-tags"></span> PRODUCTS
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#/service">
+                      <span class="glyphicon glyphicon-random"></span> SERVICE
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#/admin/login">
+                      <span class="glyphicon glyphicon-question-sign"></span> CONTACT
+                    </a>
+                  </li>
+                </div>
+                <div class="leftMenu hidden-md hidden-lg">
+                  <li>
+                    <a href="#" class="menu-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                      <span class="glyphicon glyphicon-menu-hamburger"></span> MENU
+                    </a>
+                  </li>
+                </div>
+                <li class="rightMenu hidden-xs">
+                  <a href="" class="cart cartModal">
+                    <i class="glyphicon glyphicon-shopping-cart"></i> <span class="hidden-xs">CART</span>
+                  </a>
+                </li>
+                <li class="rightMenu hidden-xs">
+                  <a href="" class="member MemberModal">
+                    <i class="glyphicon glyphicon-user"></i> <span class="hidden-xs">MEMBER</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col-md-10">
-        <!-- Breadcrumbs
-       ================================================== -->
+    </navbar>
 
 
-        <ng-view>Loading...</ng-view>
+    <!--<button type="button" class="navbar-toggle collapsed menu-toggle border" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+    <!--<i class="glyphicon glyphicon-menu-hamburger"></i>-->
+    <!--</button>-->
 
-      </div>
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="overlay"></div>
+      <ng-view>
+        <div class="ui segment">
+          <div class="ui active inverted dimmer">
+            <div class="ui loader"></div>
+          </div>
+        </div>
+      </ng-view>
+
+      <footer>  </footer>
+
     </div>
+    <!-- /#page-content-wrapper -->
+
   </div>
+  <!-- /#wrapper -->
 
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
 
-  </body>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
@@ -80,6 +164,157 @@
     <!-- angular templates will be automatically converted in js and inserted here -->
     <!-- endinject -->
     <!-- endbuild -->
+
+
+  <!-- Modal Member -->
+  <div class="modal member fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4>
+            <div class="glyphicon glyphicon-user"></div>
+            Sign In
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Remember Me.
+              </label>
+            </div>
+            <button type="button" class="btn btn-success">
+              <span class="glyphicon glyphicon-send"> </span>
+              Submit
+            </button>
+            <button type="button" class="btn btn-default registerModal">Not MEMBER ?</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal ReGister -->
+  <div class="modal Register fade" id="myRegister" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4>
+            <div class="glyphicon glyphicon-user"></div>
+            Sign Up
+          </h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>Full name</label>
+              <input type="text" class="form-control" placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label>Telephone</label>
+              <input type="text" class="form-control" placeholder="Telephone">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-default MemberModal">Are you MEMBER ?</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Cart -->
+  <div class="modal cart fade" id="myCart" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4>
+            <div class="glyphicon glyphicon-shopping-cart"></div>
+            Cart
+          </h4>
+        </div>
+        <div class="modal-body">
+          <div class="cartList">
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          asda
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script type="text/javascript"
+          src="js/bootstrap.js"></script>
+  <script type="text/javascript"
+          src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+  <script type="text/javascript"
+          src="js/aff.js"></script>
+
+
+  <script>
+    $(document)
+      .ready(function () {
+
+        $(".menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapperClient").toggleClass("toggled");
+        });
+        $("#page-content-wrapper").click(function() {
+          $("#wrapperClient").removeClass("toggled");
+        });
+
+        $(".MemberModal").click(function() {
+          $('#myRegister').modal('hide');
+          $('#myModal').modal('toggle');
+        });
+        $(".registerModal").click(function() {
+          $('#myModal').modal('hide');
+          $('#myRegister').modal('toggle');
+        });
+        $(".cartModal").click(function() {
+          $('#myCart').modal('toggle');
+        });
+
+        $('.listArticle').affix({
+          offset: 15
+        });
+
+        $(window).scroll(function(){
+          setNavBar();
+        })
+        function setNavBar() {
+          if($( window ).scrollTop() > 0) {
+            $('.wat-topBar').addClass('toggled');
+          } else {
+            $('.wat-topBar').removeClass('toggled');
+          }
+        }
+        setNavBar();
+
+      })
+    ;
+  </script>
 
   </body>
 </html>

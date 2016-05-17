@@ -7,6 +7,6 @@
       'pascalprecht.translate',
       'flow',
       'ngResource+apiPrefix', 'cgBusy',
-      'ngCookies']);
+      'ngCookies','ui.bootstrap']);
 
 })();

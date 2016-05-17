@@ -64,7 +64,7 @@
         <td class="text-center" ng-show="hasRole('admin')"><a ng-href="#/listProduct"><span
           class="glyphicon glyphicon-remove-circle"
           aria-hidden="true"
-          ng-click="deleteProduct(product.id)"></span></a></td>
+          ng-click="vm.deleteProduct(product.id)"></span></a></td>
         <td class="text-center" ng-show="hasRole('user')"><a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>
         </td>
       </tr>
