@@ -23,6 +23,8 @@ public class User {
     private String email;
     private String password;
     private Date dob;
+
+
     @ManyToMany(fetch= FetchType.EAGER)
     // Cascade and CascadeType must be the org.hibernate.annotation
     @Cascade(CascadeType.ALL)
