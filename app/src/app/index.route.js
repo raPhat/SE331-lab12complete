@@ -54,7 +54,7 @@
       }).
       when('/admin/ProductManagement', {
         templateUrl: 'app/admin/ProductManagement/ProductManagement.html',
-        controller: 'AdminController',
+        controller: 'listProductAdminController',
         controllerAs: 'vm'
       }).
       when('/admin/MemberManagement', {

@@ -10,6 +10,7 @@
   /** @ngInject */
   function AdminController($scope, $rootScope) {
     var vm = this;
+
   }
 
   /** @ngInject */

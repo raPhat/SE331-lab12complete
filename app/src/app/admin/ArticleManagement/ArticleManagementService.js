@@ -1,21 +1,31 @@
 /**
  * Created by Shine on 18/5/2559.
  */
-(function() {
+(function () {
   'use strict'
   angular
     .module('app')
-    .factory('ArticleManagementService',ArticleManagementService);
-
+    .factory('ArticleAdminService', ArticleAdminService)
+    .factory('queryArticleAdminService', queryArticleAdminService);
 
 
   /** @ngInject */
-  function ArticleManagementService($resource){
-    return $resource('/user/:id', { id: '@_id' }, {
+  function ArticleAdminService($resource) {
+    return $resource('/article/:id', {id: '@_id'}, {
       update: {
         method: 'PUT' // this method issues a PUT request
-      }});
+      }
+    });
+  }
 
+
+  /** @ngInject */
+  function queryArticleAdminService($resource) {
+    return $resource('/article/:topic',
+      {
+        query: {method: 'GET', params: {topic: ''}, isArray: true}
+
+      });
   }
 
 })();

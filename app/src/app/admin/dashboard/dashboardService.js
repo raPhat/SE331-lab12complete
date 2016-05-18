@@ -2,7 +2,7 @@
  * Created by Shine on 18/5/2559.
  */
 (function() {
-  'use strict'
+  'use strict';
   angular
     .module('app')
     .factory('dashboardService',dashboardService);

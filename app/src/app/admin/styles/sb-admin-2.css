@@ -353,3 +353,23 @@ table.dataTable thead .sorting:after {
     color: #df8a13;
 }
 
+.imgResize {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  background-size: cover;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+.imgResize:after {
+  position: absolute;
+  top: 0;
+  bottom:-5px;
+  left: 0;
+  right: 0;
+  content: '';
+  border-bottom: 2px solid #EEE;
+}
+

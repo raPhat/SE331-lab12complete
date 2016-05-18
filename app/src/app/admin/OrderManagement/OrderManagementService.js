@@ -11,7 +11,7 @@
 
   /** @ngInject */
   function OrderManagementService($resource){
-    return $resource('/user/:id', { id: '@_id' }, {
+    return $resource('/Order/:id', { id: '@_id' }, {
       update: {
         method: 'PUT' // this method issues a PUT request
       }});
