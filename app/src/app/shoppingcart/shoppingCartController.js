@@ -43,15 +43,29 @@
     };
 
     vm.saveCart = function (cart){
-      console.log(cart);
-      cart.user = {};
-      cart.user.username = $rootScope.user.name;
-      cartManagement.saveCart(cart,function(returnData){
-        $rootScope.shoppingCart = returnData;
-        //success add cart
-        $log.debug("save cart success");
-      })
-    }
+
+      var answer = confirm("Are you sure?");
+      if (answer) {
+        cart.user = {};
+        cart.user.username = $rootScope.user.name;
+        cartManagement.saveCart(cart,function(returnData){
+          $rootScope.shoppingCart = {};
+          cart = {};
+          queryUserService.query({ id: $rootScope.user.name }, function(data) {
+            vm.orders = data;
+          });
+          //success add cart
+          $log.debug("save cart success");
+        });
+      }
+    };
+
+    vm.removeProduct = function(index){
+      var answer = confirm("Do you want to remove the product?");
+      if (answer) {
+        $rootScope.shoppingCart.selectedProducts.splice(index, 1);
+      }
+    };
 
 
     vm.total = function () {

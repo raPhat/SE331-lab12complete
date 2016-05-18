@@ -4,7 +4,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($scope, $rootScope, mainService) {
+  function MainController($scope, $rootScope, mainService, productService) {
     $scope.addRetailUser = function () {
       mainService.save($scope.newuser, function (data) {
         console.log(data);
@@ -14,12 +14,10 @@
     $scope.removeProduct = function(index){
       var answer = confirm("Do you want to remove the product?");
       if (answer) {
-        productService.delete({id: id}, function () {
-          $rootScope.deleteSuccess = true;
-          $route.reload();
-        })
+        //productService.delete({id: index}, function () {
+        //})
+        $rootScope.shoppingCart.selectedProducts.splice(index, 1);
       }
-      $rootScope.shoppingCart.selectedProducts.splice(index, 1);
     }
 
   }
