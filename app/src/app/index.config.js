@@ -9,13 +9,13 @@
     .config(configFailRequestRedirect)
     .directive('chat', function () {
       return {
-        templateUrl: 'app/admin/chat.html',
+        templateUrl: 'app/admin/directive/chat.html',
         restrict: 'E',
         replace: true
       }
     }).directive('stats', function () {
     return {
-      templateUrl: 'app/admin/stats.html',
+      templateUrl: 'app/admin/directive/stats.html',
       restrict: 'E',
       replace: true,
       scope: {
@@ -32,25 +32,25 @@
     }
   }).directive('headerNotification', function () {
     return {
-      templateUrl: 'app/admin/header-notification.html',
+      templateUrl: 'app/admin/directive/header-notification.html',
       restrict: 'E',
       replace: true
     }
   }).directive('headerNavbar', function () {
     return {
-      templateUrl: 'app/admin/header.html',
+      templateUrl: 'app/admin/directive/header.html',
       restrict: 'E',
       replace: true
     }
   }).directive('notifications', function () {
     return {
-      templateUrl: 'app/admin/notifications.html',
+      templateUrl: 'app/admin/directive/notifications.html',
       restrict: 'E',
       replace: true
     }
   }).directive('sidebarSearch', function () {
     return {
-      templateUrl: 'app/admin/sidebar-search.html',
+      templateUrl: 'app/admin/directive/sidebar-search.html',
       restrict: 'E',
       replace: true,
       scope: {},
@@ -60,7 +60,7 @@
     }
   }).directive('sidebar', ['$location', function () {
     return {
-      templateUrl: 'app/admin/sidebar.html',
+      templateUrl: 'app/admin/directive/sidebar.html',
       restrict: 'E',
       replace: true,
       scope: {},
@@ -88,7 +88,7 @@
     }
   }]).directive('timeline', function () {
     return {
-      templateUrl: 'app/admin/timeline.html',
+      templateUrl: 'app/admin/directive/timeline.html',
       restrict: 'E',
       replace: true
     }
@@ -105,7 +105,7 @@
 
   /** @ngInject */
   function configTranslation($translateProvider) {
-    $translateProvider.useUrlLoader('http://localhost:8080/messageBundle');
+    $translateProvider.useUrlLoader('http://192.168.1.8:8080/messageBundle');
     $translateProvider.useStorage('UrlLanguageStorage');
     $translateProvider.preferredLanguage('en');
     $translateProvider.fallbackLanguage('en');

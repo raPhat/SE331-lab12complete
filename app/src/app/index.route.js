@@ -48,42 +48,42 @@
         controllerAs: 'vm'
       }).
       when('/admin/', {
-        templateUrl: 'app/admin/dashboard.html',
+        templateUrl: 'app/admin/dashboard/dashboard.html',
         controller: 'AdminController',
         controllerAs: 'vm'
       }).
       when('/admin/ProductManagement', {
-        templateUrl: 'app/admin/ProductManagement.html',
+        templateUrl: 'app/admin/ProductManagement/ProductManagement.html',
         controller: 'AdminController',
         controllerAs: 'vm'
       }).
       when('/admin/MemberManagement', {
-        templateUrl: 'app/admin/MemberManagement.html',
+        templateUrl: 'app/admin/MemberManagement/MemberManagement.html',
         controller: 'AdminController',
         controllerAs: 'vm'
       }).
       when('/admin/OrderManagement', {
-        templateUrl: 'app/admin/OrderManagement.html',
+        templateUrl: 'app/admin/OrderManagement/OrderManagement.html',
         controller: 'AdminController',
         controllerAs: 'vm'
       }).
       when('/admin/ArticleManagement', {
-        templateUrl: 'app/admin/ArticleManagement.html',
+        templateUrl: 'app/admin/ArticleManagement/ArticleManagement.html',
         controller: 'AdminController',
         controllerAs: 'vm'
       }).
       when('/admin/ContactManagement', {
-        templateUrl: 'app/admin/ContactManagement.html',
+        templateUrl: 'app/admin/ContactManagement/ContactManagement.html',
         controller: 'AdminController',
         controllerAs: 'vm'
      }).
       when('/admin/PaymentManagement', {
-        templateUrl: 'app/admin/PaymentManagement.html',
+        templateUrl: 'app/admin/PaymentManagement/PaymentManagement.html',
         controller: 'AdminController',
         controllerAs: 'vm'
      }).
       when('/admin/StatisticManagement', {
-        templateUrl: 'app/admin/dashboard.html',
+        templateUrl: 'app/admin/dashboard/dashboard.html',
         controller: 'AdminController',
         controllerAs: 'vm'
      }).

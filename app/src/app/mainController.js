@@ -9,7 +9,7 @@
       mainService.save($scope.newuser, function (data) {
         console.log(data);
       });
-    }
+    };
 
     $scope.removeProduct = function(index){
       var answer = confirm("Do you want to remove the product?");
