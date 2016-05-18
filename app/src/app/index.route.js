@@ -83,7 +83,7 @@
         controllerAs: 'vm'
      }).
       when('/admin/StatisticManagement', {
-        templateUrl: 'app/admin/StatisticManagement.html',
+        templateUrl: 'app/admin/dashboard.html',
         controller: 'AdminController',
         controllerAs: 'vm'
      }).

@@ -8,12 +8,12 @@
     .config(configFlowFactoryProvider)
     .config(configFailRequestRedirect)
     .directive('chat', function () {
-    return {
-      templateUrl: 'app/admin/chat.html',
-      restrict: 'E',
-      replace: true
-    }
-  }).directive('stats', function () {
+      return {
+        templateUrl: 'app/admin/chat.html',
+        restrict: 'E',
+        replace: true
+      }
+    }).directive('stats', function () {
     return {
       templateUrl: 'app/admin/stats.html',
       restrict: 'E',
@@ -34,7 +34,7 @@
     return {
       templateUrl: 'app/admin/header-notification.html',
       restrict: 'E',
-      replace: true,
+      replace: true
     }
   }).directive('headerNavbar', function () {
     return {
@@ -92,7 +92,15 @@
       restrict: 'E',
       replace: true
     }
-  });
+  })
+    .config([
+      'datetimepickerProvider',
+      function (datetimepickerProvider) {
+        datetimepickerProvider.setOptions({
+          locale: 'en'
+        });
+      }
+    ]);
 
 
   /** @ngInject */

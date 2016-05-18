@@ -1,7 +1,9 @@
 {
   "name": "app",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "angular-bootstrap-datetimepicker": "^1.0.1"
+  },
   "scripts": {
     "test": "gulp test"
   },
