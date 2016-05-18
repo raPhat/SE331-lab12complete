@@ -20,7 +20,7 @@ public class Product implements Comparable{
     String name;
     String description;
     Double totalPrice;
-
+    
 
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)

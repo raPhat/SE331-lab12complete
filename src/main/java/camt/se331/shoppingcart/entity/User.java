@@ -25,6 +25,11 @@ public class User {
     private Date dob;
 
 
+//    @OneToMany(mappedBy = "user")
+//    @Cascade(CascadeType.ALL)
+//    @JsonManagedReference
+//    private Set<Article> articles = new HashSet<>();
+
     @ManyToMany(fetch= FetchType.EAGER)
     // Cascade and CascadeType must be the org.hibernate.annotation
     @Cascade(CascadeType.ALL)
@@ -145,11 +150,13 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", dob=" + dob +
                 ", roles=" + roles +
+                ", shoppingCarts=" + shoppingCarts +
                 '}';
     }
 }
