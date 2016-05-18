@@ -88,7 +88,6 @@
 
     }
     vm.removeProduct = function(index){
-      alert(1);
       $rootScope.shoppingCart.selectedProducts.splice(index, 1);
     }
 

@@ -12,7 +12,7 @@
     <div class="panel-body">
 
       <div class="list-group" ng-show="vm.orders">
-        <div ng-repeat=" order in vm.orders ">
+        <div class="order" ng-repeat=" order in vm.orders ">
           <a href="#" class="list-group-item active">
             <h4 class="list-group-item-heading">
               <span class="glyphicon glyphicon-tags"></span>
@@ -20,8 +20,10 @@
               <span class="date">{{ order.purchaseDate | date:"MM/dd/yyyy 'at' h:mma"}}</span>
             </h4>
           </a>
+
           <div class="list-group-item">
             <p class="list-group-item-text">
+
             <div class="alert alert-success" role="alert">...</div>
             <ul>
               <li ng-repeat="selectedProducts in order.selectedProducts">
@@ -43,12 +45,12 @@
     <hr/>
 
 
-    <div class="container-fluid" ng-show="vm.orders.length==0">
-      <div class="alert alert-warning" role="alert" ng-show="{{vm.cart.selectedProducts === undefined}}">
+    <div class="container-fluid" ng-show="!shoppingCart.selectedProducts.length>0">
+      <div class="alert alert-warning" role="alert">
         ไม่มีสินค้าอยู่ในตะกร้า
       </div>
     </div>
-    <form name="editform" novalidate ng-show="vm.cart.selectedProducts.length>0">
+    <form name="editform" novalidate ng-show="shoppingCart.selectedProducts.length>0">
       <div class="form-group">
         <!-- Table -->
         <table class="table table-striped">
@@ -58,10 +60,8 @@
             <th width="30%" class="text-right" translate>listProduct.amount</th>
             <th class="text-right" translate>listProduct.price</th>
             <th width="75" class="text-right" translate>listProduct.remove</th>
-
-
           </tr>
-          <tr ng-repeat="selectedProduct in vm.cart.selectedProducts">
+          <tr ng-repeat="selectedProduct in shoppingCart.selectedProducts">
             <td>{{$index+1}}</td>
             <td>{{selectedProduct.product.name}}</td>
             <td class=" col-xs-1">
@@ -71,7 +71,11 @@
               </div>
             </td>
             <td class="text-right">{{vm.totalEach($index) |number:2}}</td>
-            <td class="text-right"><a><span ng-click="vm.removeProduct($index)">remove</span></a></td>
+            <td class="text-right">
+              <button ng-click="vm.removeProduct($index)">
+                <span  class="fa fa-trash"></span>
+              </button>
+            </td>
           </tr>
           <tr>
             <th></th>
@@ -79,7 +83,6 @@
             <th></th>
             <th></th>
             <th class="text-right">{{vm.total() | number :2}}</th>
-
           </tr>
 
         </table>
