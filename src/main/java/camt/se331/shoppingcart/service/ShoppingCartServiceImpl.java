@@ -1,7 +1,9 @@
 package camt.se331.shoppingcart.service;
 
+import camt.se331.shoppingcart.dao.ProgressDao;
 import camt.se331.shoppingcart.dao.ShoppingCartDao;
 import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.entity.Progress;
 import camt.se331.shoppingcart.entity.SelectedProduct;
 import camt.se331.shoppingcart.entity.ShoppingCart;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Autowired
     ShoppingCartDao shoppingCartDao;
+    @Autowired
+    ProgressDao progressDao;
 
     @Override
     @Transactional
@@ -59,5 +63,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         SelectedProduct selectedProduct = new SelectedProduct(product,1);
         shoppingCart.getSelectedProducts().add(selectedProduct);
         return shoppingCart;
+    }
+
+    @Override
+    public Progress addProgress(Progress progress) {
+        return progressDao.addProgress(progress);
     }
 }

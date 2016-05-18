@@ -20,7 +20,8 @@ public class Product implements Comparable{
     String name;
     String description;
     Double totalPrice;
-    
+
+
 
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
@@ -56,13 +57,6 @@ public class Product implements Comparable{
 
     };
 
-    public Double getNetPrice(){
-        return getTotalPrice()*(1-VatEntity.getInstance().getVat());
-    }
-
-    public Double getTax(){
-        return 0.0;
-    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

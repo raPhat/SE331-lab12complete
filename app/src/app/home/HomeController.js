@@ -10,6 +10,7 @@
   function HomeController($scope, $rootScope) {
     var vm = this;
     vm.myInterval = 8000;
+    vm.reviewInterval = 5000;
     vm.slides = [
       {
         image: 'http://wallpaper.thaiware.com/upload/wallpaper/2009_08/16405_7349_090813162558_41.jpg'

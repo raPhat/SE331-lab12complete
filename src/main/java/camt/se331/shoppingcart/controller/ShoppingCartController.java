@@ -1,6 +1,7 @@
 package camt.se331.shoppingcart.controller;
 
 import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.entity.Progress;
 import camt.se331.shoppingcart.entity.ShoppingCart;
 import camt.se331.shoppingcart.entity.User;
 import camt.se331.shoppingcart.service.ProductService;
@@ -60,4 +61,14 @@ public class ShoppingCartController {
         shoppingCart.setUser(user);
         return shoppingCartService.addShoppingCart(shoppingCart);
     }
+
+
+    @RequestMapping(value = "/progress/{text}", method = RequestMethod.GET)
+    public Progress addProgress(@PathVariable("text") String text) {
+        Progress progress = new Progress(text,false,"first");
+        ShoppingCart cart = shoppingCartService.findById(1l);
+        progress.setCart( cart );
+        return shoppingCartService.addProgress(progress);
+    }
+
 }

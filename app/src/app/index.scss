@@ -271,18 +271,28 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
   .carousel-indicators {
     display: none;
   }
+  .carousel-control.left span {
+    position: absolute;
+    top: calc(50% - 30px);
+    left: -10px;
+  }
+  .carousel-control.right span {
+    position: absolute;
+    top: calc(50% - 30px);
+    right: -10px;
+  }
   .carousel-control span {
+    width: 60px !important;
+    height: 60px !important;
     text-shadow: none;
     text-align: center;
     font-size: 50px !important;
-    width: 30px;
-    height: 60px;
     color: rgba(0, 0, 0, 0.2);
     top: calc(50% - 30px);
-    &.icon-next {
+    &.right {
       right: 9px;
     }
-    &.icon-prev {
+    &.left {
       left: 9px;
     }
     &:hover {
@@ -312,7 +322,9 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
 }
 
 .carousel-control span {
-  font-size: 120px !important;
+  width: 90px !important;
+  height: 90px !important;
+  font-size: 90px !important;
 }
 
 .xs-only {
@@ -1089,4 +1101,12 @@ hr.hr {
   .order {
     margin-top: 20px;
   }
+}
+
+
+.tab-pane {
+  padding: 20px 15px;
+  border-bottom: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  border-right: 1px solid #DDD;
 }
