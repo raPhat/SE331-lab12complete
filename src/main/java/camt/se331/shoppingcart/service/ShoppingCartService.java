@@ -1,6 +1,7 @@
 package camt.se331.shoppingcart.service;
 
 import camt.se331.shoppingcart.entity.Product;
+import camt.se331.shoppingcart.entity.Progress;
 import camt.se331.shoppingcart.entity.ShoppingCart;
 
 import java.util.Date;
@@ -16,5 +17,7 @@ public interface ShoppingCartService {
     ShoppingCart addShoppingCart(ShoppingCart shoppingCart);
     ShoppingCart deleteShoppingCart(ShoppingCart shoppingCart);
     ShoppingCart addSelectedProduct(ShoppingCart shoppingCart, Product product);
+
+    Progress addProgress(Progress progress);
 
 }

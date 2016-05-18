@@ -1,3 +1,4 @@
+
 <div class="slides_control">
   <carousel interval="vm.myInterval">
     <slide ng-repeat="slide in vm.slides" active="slide.active">
@@ -70,7 +71,8 @@
         </div>
       </div>
 
-      <div class="col-xs-12 visible-xs">iv       <a class="btn btn-lg btn-default" style="width: 100%; color: #888">
+      <div class="col-xs-12 visible-xs">
+        <a class="btn btn-lg btn-default" style="width: 100%; color: #888">
           <i class="glyphicon glyphicon-th" style="color: #666"></i> MORE
         </a>
       </div>
@@ -81,7 +83,7 @@
 
 <div class="container">
   <div class="slides_control slides_review">
-    <carousel interval="vm.myInterval">
+    <carousel interval="vm.reviewInterval">
       <slide ng-repeat="review in vm.reviews" active="review.active">
         <div class="content">
           <div class="col-sm-6">

@@ -6,10 +6,7 @@ import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by Dto on 2/7/2015.
@@ -24,6 +21,17 @@ public class ShoppingCart {
     @Cascade(CascadeType.ALL)
     @JsonBackReference
     User user;
+
+    @OneToMany(mappedBy = "cart")
+    Set<Progress> progresses = new HashSet<>();
+
+    public Set<Progress> getProgresses() {
+        return progresses;
+    }
+
+    public void setProgresses(Set<Progress> progresses) {
+        this.progresses = progresses;
+    }
 
     public User getUser() {
         return user;
