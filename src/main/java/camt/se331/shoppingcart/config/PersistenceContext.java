@@ -59,13 +59,13 @@ class PersistenceContext {
 
     @Autowired
     private Environment env;
-    @Bean
-    public DataSource embedDataSource(){
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).setScriptEncoding("UTF-8").build();
-
-        return db;
-    }
+//    @Bean
+//    public DataSource embedDataSource(){
+//        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+//        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).setScriptEncoding("UTF-8").build();
+//
+//        return db;
+//    }
 
 
 

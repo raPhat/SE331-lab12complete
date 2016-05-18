@@ -8,7 +8,7 @@ import java.util.Date;
  */
 @Entity
 public class Image {
-        @Id
+    @Id
     @GeneratedValue
     private Long id;
 
