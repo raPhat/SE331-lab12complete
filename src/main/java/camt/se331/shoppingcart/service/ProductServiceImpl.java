@@ -48,6 +48,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Transactional
     public Product updateProduct(Product product) {
         return productDao.updateProduct(product);
     }
@@ -60,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     @Transactional
     public Product addImage(Product product, Image image) {
-        image=ImageUtil.resizeImage(image,200);
+        image=ImageUtil.resizeImage(image,1024);
         product.getImages().add(image);
         productDao.updateProduct(product);
         return product;

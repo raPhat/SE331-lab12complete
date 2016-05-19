@@ -56,6 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers(HttpMethod.POST, "/product/**").hasAuthority("admin")//.access("hasRole('admin')")
                     .antMatchers(HttpMethod.PUT, "/product/**").hasAuthority("admin")
                     .antMatchers(HttpMethod.DELETE, "/product/**").hasAuthority("admin")
+                    .antMatchers(HttpMethod.OPTIONS, "/productImage/**").hasAuthority("admin")
                     .antMatchers("/shoppingcart/**").permitAll()
                 .and()
                 .addFilterBefore(authenticationTokenProcessingFilter, UsernamePasswordAuthenticationFilter.class)

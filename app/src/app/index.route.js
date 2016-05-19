@@ -69,7 +69,7 @@
       }).
       when('/admin/ArticleManagement', {
         templateUrl: 'app/admin/ArticleManagement/ArticleManagement.html',
-        controller: 'AdminController',
+        controller: 'ArticleManagementController',
         controllerAs: 'vm'
       }).
       when('/admin/ContactManagement', {

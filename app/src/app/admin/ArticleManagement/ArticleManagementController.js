@@ -8,7 +8,7 @@
 
 
   /** @ngInject */
-  function ArticleManagementController($scope, $rootScope, queryArticleAdminService, ArticleAdminService,$routeParams) {
+  function ArticleManagementController($scope, $rootScope, queryArticleAdminService, ArticleAdminService,NewArticleService,$sce) {
     var vm = this;
     //$http.get("/product/").success(function (data) {
     vm.queryPromise = queryArticleAdminService.query(function (data) {
@@ -32,6 +32,24 @@
         })
       }
     };
+
+    vm.article = {};
+    vm.addArticle = function (flowFiles) {
+      console.log( vm.article.content );
+      NewArticleService.addArticle({
+        topic: vm.article.topic,
+        content: vm.article.content,
+        username: $rootScope.user.name
+      },function(data){
+        console.log(data);
+        var articleid = data.id;
+        // set location
+        flowFiles.opts.target = 'http://localhost:8080/article/addImage';
+        flowFiles.opts.testChunks = false;
+        flowFiles.opts.query = {articleid: articleid};
+        flowFiles.upload();
+      });
+    }
 
 
   }

@@ -18,8 +18,11 @@ public class Product implements Comparable{
     @GeneratedValue
     Long id;
     String name;
+    String nameTh;
     String description;
+    String descriptionTh;
     Double totalPrice;
+    Double wholesalePrice;
 
 
 
@@ -57,6 +60,22 @@ public class Product implements Comparable{
 
     };
 
+    public Product(Long id,String name, String description, Double price) {
+        this.name = name;
+        this.description = description;
+        this.totalPrice = price;
+        this.id = id;
+    }
+
+    public Product(String name, String nameTh, String description, String descriptionTh, Double totalPrice, Double wholesalePrice) {
+        this.name = name;
+        this.nameTh = nameTh;
+        this.description = description;
+        this.descriptionTh = descriptionTh;
+        this.totalPrice = totalPrice;
+        this.wholesalePrice = wholesalePrice;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -64,28 +83,53 @@ public class Product implements Comparable{
 
         Product product = (Product) o;
 
-        if (description != null ? !description.equals(product.description) : product.description != null) return false;
-        if (id != null ? !id.equals(product.id) : product.id != null) return false;
-        if (name != null ? !name.equals(product.name) : product.name != null) return false;
-        if (totalPrice != null ? !totalPrice.equals(product.totalPrice) : product.totalPrice != null) return false;
+        if (getId() != null ? !getId().equals(product.getId()) : product.getId() != null) return false;
+        if (getName() != null ? !getName().equals(product.getName()) : product.getName() != null) return false;
+        if (getNameTh() != null ? !getNameTh().equals(product.getNameTh()) : product.getNameTh() != null) return false;
+        if (getDescription() != null ? !getDescription().equals(product.getDescription()) : product.getDescription() != null)
+            return false;
+        if (getDescriptionTh() != null ? !getDescriptionTh().equals(product.getDescriptionTh()) : product.getDescriptionTh() != null)
+            return false;
+        if (getTotalPrice() != null ? !getTotalPrice().equals(product.getTotalPrice()) : product.getTotalPrice() != null)
+            return false;
+        return !(getWholesalePrice() != null ? !getWholesalePrice().equals(product.getWholesalePrice()) : product.getWholesalePrice() != null);
 
-        return true;
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (totalPrice != null ? totalPrice.hashCode() : 0);
-        result = 31 * result + (id != null ? id.hashCode() : 0);
+        int result = getId() != null ? getId().hashCode() : 0;
+        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
+        result = 31 * result + (getNameTh() != null ? getNameTh().hashCode() : 0);
+        result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+        result = 31 * result + (getDescriptionTh() != null ? getDescriptionTh().hashCode() : 0);
+        result = 31 * result + (getTotalPrice() != null ? getTotalPrice().hashCode() : 0);
+        result = 31 * result + (getWholesalePrice() != null ? getWholesalePrice().hashCode() : 0);
         return result;
     }
 
-    public Product(Long id,String name, String description, Double price) {
-        this.name = name;
-        this.description = description;
-        this.totalPrice = price;
-        this.id = id;
+    public String getNameTh() {
+        return nameTh;
+    }
+
+    public void setNameTh(String nameTh) {
+        this.nameTh = nameTh;
+    }
+
+    public String getDescriptionTh() {
+        return descriptionTh;
+    }
+
+    public void setDescriptionTh(String descriptionTh) {
+        this.descriptionTh = descriptionTh;
+    }
+
+    public Double getWholesalePrice() {
+        return wholesalePrice;
+    }
+
+    public void setWholesalePrice(Double wholesalePrice) {
+        this.wholesalePrice = wholesalePrice;
     }
 
     public String getName() {

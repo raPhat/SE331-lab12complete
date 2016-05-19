@@ -611,6 +611,9 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
         font-weight: bold;
         background-color: #32528d;
         color: rgba(255, 255, 255, 0.95);
+        &.ex {
+          background-color: #800000;
+        }
         span {
           font-weight: normal;
           font-size: 10px;
@@ -1109,4 +1112,53 @@ hr.hr {
   border-bottom: 1px solid #DDD;
   border-left: 1px solid #DDD;
   border-right: 1px solid #DDD;
+}
+
+
+
+.kinetic-slider-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  z-index: 1;
+  overflow: hidden;
+
+  @media all and (max-width: 1000px) {
+    height: 310px;
+  }
+  @media all and (max-width: 600px) {
+    height: 210px;
+  }
+
+}
+
+
+.kinetic-slider-content {
+  position: absolute;
+  z-index: 1;         // note: make sure you set a z-index
+  width: 100%;
+
+  a {
+    position: relative;
+    display: block;
+    float: left;
+    width: 390px;
+    height: 390px;
+    padding: 5px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+    }
+
+
+    @media all and (max-width: 1000px) {
+      width: 300px;
+      height: 300px;
+    }
+    @media all and (max-width: 600px) {
+      width: 200px;
+      height: 200px;
+    }
+  }
 }

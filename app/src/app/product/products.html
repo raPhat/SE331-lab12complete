@@ -21,7 +21,7 @@
       <div class="col-md-3 col-sm-6" ng-repeat="product in vm.products">
         <div class="card">
           <div class="cover">
-            <a href="#" class="btn btn-warning"><span class="glyphicon glyphicon-info-sign"></span> Information</a>
+            <a class="btn btn-warning" ng-click="vm.setCurrentProduct(product)" data-toggle="modal" data-target="#productModal"><span class="glyphicon glyphicon-info-sign"></span> Information</a>
             <button ng-show="user" class="btn btn-success" ng-click="vm.addToCart(product)"><span class="glyphicon glyphicon-plus-sign"></span> Buy</button>
           </div>
           <!--<div class="ribbon"><span>RECOMMEND</span></div>-->
