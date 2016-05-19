@@ -2,7 +2,7 @@ logs/*
 !.gitkeep
 node_modules/
 bower_components/
-!bower_components/simpleImageGallery/
+!app/bower_components/simpleImageGallery/**
 tmp
 .DS_Store
 .idea
