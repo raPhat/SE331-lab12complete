@@ -1162,3 +1162,18 @@ hr.hr {
     }
   }
 }
+
+.panelProduct {
+  position: relative;
+  &:after {
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    top: 15px;
+    left: -14px;
+    border: 14px solid transparent;
+    border-right-color: #fff;
+    border-left: 0 #DDDDDD;
+    z-index: 10;
+  }
+}

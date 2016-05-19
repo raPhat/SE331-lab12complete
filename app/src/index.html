@@ -86,9 +86,9 @@
                   </a>
                 </li>
                 <!--<li>-->
-                  <!--<a href="#/service">-->
-                    <!--<span class="glyphicon glyphicon-random"></span> SERVICE-->
-                  <!--</a>-->
+                <!--<a href="#/service">-->
+                <!--<span class="glyphicon glyphicon-random"></span> SERVICE-->
+                <!--</a>-->
                 <!--</li>-->
                 <li>
                   <a href="#/admin/login">
@@ -291,15 +291,30 @@
             </div>
             <div class="media-body">
               <h4 class="media-heading">
-                {{ selectedProduct.product.name }}
-                <button class="btRemove" ng-click="removeProduct($index)">
-                  <span class="glyphicon glyphicon-remove-sign"></span>
-                </button>
+                <div class="col-md-6">
+                  {{ selectedProduct.product.name }}
+                </div>
+
+                <div class="col-md-6 text-right">
+                  <button class="btRemove" ng-click="removeProduct($index)">
+                    <span class="glyphicon glyphicon-remove-sign"></span>
+                  </button>
+                </div>
               </h4>
+
               <div class="input-group">
-                <span class="input-group-addon"> {{ selectedProduct.product.totalPrice }} x </span>
-                <input type="number" class="form-control" ng-model="selectedProduct.amount">
-                <span class="input-group-addon total"> {{ selectedProduct.product.totalPrice * selectedProduct.amount | number:2 }}</span>
+
+                <div class="col-md-4">Price</div>
+                <div class="col-md-4">Amount</div>
+                <div class="col-md-4"> Total price</div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <span class="input-group-addon"> {{ selectedProduct.product.totalPrice }} x </span>
+                    <input type="number" class="form-control" ng-model="selectedProduct.amount">
+                    <span class="input-group-addon total"> {{ selectedProduct.product.totalPrice * selectedProduct.amount | number:2 }}</span>
+                  </div>
+                   </div>
               </div>
             </div>
           </div>
@@ -308,7 +323,7 @@
       <div class="modal-footer" ng-show="shoppingCart.selectedProducts.length>0">
         <a href="#/shoppingCart" class="btn btn-defualt ">
             <span class="glyphicon glyphicon-send">
-              CONFIRM
+              Checkout
             </span>
         </a>
       </div>
@@ -320,6 +335,7 @@
 <div class="modal fade" id="productModal">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3 class="modal-title" id="myModalLabel" style="text-align: center">
@@ -332,17 +348,44 @@
           </span>
         </h3>
       </div>
+
       <div class="modal-body" style="position: relative">
         <div class="col-md-6">
-          <simple-image-gallery images="currentProduct.images"></simple-image-gallery>
+          <div class="row">
+            <div class="col-xs-12">
+              <h4 class="page-header">Pictures</h4>
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <simple-image-gallery images="currentProduct.images"></simple-image-gallery>
+            </div>
+          </div>
+
         </div>
         <div class="col-md-6">
-          asdasd
+          <div class="row">
+            <div class="col-xs-12">
+              <h4 class="page-header">Description</h4>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <p>{{currentProduct.description}}</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est quaerat asperiores sapiente,
+                eligendi, nihil. Itaque quos, alias sapiente rerum quas odit! Aperiam officiis quidem delectus libero,
+                omnis ut debitis!</p>
+            </div>
+          </div>
+
         </div>
       </div>
       <div class="modal-footer" style="clear: both">
 
-        <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Buy</button>
+        <button type="submit" class="btn btn-default btn-success"><span class="glyphicon glyphicon-plus-sign"></span>
+          Buy
+        </button>
         <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
       </div>
 
