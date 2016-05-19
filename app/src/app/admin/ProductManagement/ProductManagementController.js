@@ -138,6 +138,7 @@
       product.descriptionTh = escape(product.descriptionTh);
       product.nameTh = escape(product.nameTh);
       productService.update({id: product.id}, product, function (data) {
+
         var productid = data.id;
         // set location
         flowFiles.opts.target = 'http://localhost:8080/productImage/add';
