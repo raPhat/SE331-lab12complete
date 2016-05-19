@@ -1,5 +1,6 @@
 package camt.se331.shoppingcart.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.*;
 import org.hibernate.annotations.CascadeType;
@@ -28,6 +29,7 @@ public class Article {
 
     @ManyToMany
     @Cascade(CascadeType.ALL)
+    @JsonManagedReference
     private Set<Product> productSet = new HashSet<>();
 
 

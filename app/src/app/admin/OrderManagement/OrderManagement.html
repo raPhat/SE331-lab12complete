@@ -15,7 +15,10 @@
         </div>
         <div class="panel-body">
           <uib-tabset active="activeJustified" justified="true">
-            <uib-tab index="0" heading="All">
+            <uib-tab index="1">
+              <uib-tab-heading>
+                <i class="fa fa-calculator"></i> Calculation <span class="badge">0</span>
+              </uib-tab-heading>
               <table class="table table-hover">
                 <thead>
                 <tr>
@@ -23,86 +26,6 @@
                   <th>Purchase Code</th>
                   <th>Name</th>
                   <th>Member type</th>
-                  <th>Status</th>
-                  <th>Order date</th>
-                  <th>Total price</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>213123</td>
-                  <td>Doe</td>
-                  <td>Retail</td>
-                  <td>
-                    <div class="form-group">
-                      <select class="form-control">
-                        <option>Producing</option>
-                        <option>Waiting</option>
-                        <option>Delivered</option>
-                      </select>
-                    </div>
-
-                  </td>
-                  <td>17-May-2016</td>
-                  <td>3000 bath</td>
-                  <td>
-                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-eye"></i>
-                    </button>
-                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-cog"></i>
-                    </button>
-                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-times"></i>
-                    </button>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>213123</td>
-                  <td>Doe</td>
-                  <td>Retail</td>
-                  <td>
-                    <div class="form-group">
-                      <select class="form-control">
-                        <option>Producing</option>
-                        <option>Waiting</option>
-                        <option>Delivered</option>
-                      </select>
-                    </div>
-
-                  </td>
-                  <td>17-May-2016</td>
-                  <td>3000 bath</td>
-                  <td>
-                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-eye"></i>
-                    </button>
-                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-cog"></i>
-                    </button>
-                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-times"></i>
-                    </button>
-
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-
-            </uib-tab>
-            <uib-tab index="1" heading="WaitingForCalculation">
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Purchase Code</th>
-                  <th>Name</th>
-                  <th>Member type</th>
-                  <th>Status</th>
                   <th>Order date</th>
                   <th>Total price</th>
                   <th></th>
@@ -114,46 +37,6 @@
                   <td>213123</td>
                   <td>Doe</td>
                   <td>Retail</td>
-                  <td>
-                    <div class="form-group">
-                      <select class="form-control">
-                        <option>Producing</option>
-                        <option>Waiting</option>
-                        <option>Delivered</option>
-                      </select>
-                    </div>
-
-                  </td>
-                  <td>17-May-2016</td>
-                  <td>3000 bath</td>
-                  <td>
-                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-eye"></i>
-                    </button>
-                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-cog"></i>
-                    </button>
-                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-times"></i>
-                    </button>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>213123</td>
-                  <td>Doe</td>
-                  <td>Retail</td>
-                  <td>
-                    <div class="form-group">
-                      <select class="form-control">
-                        <option>Producing</option>
-                        <option>Waiting</option>
-                        <option>Delivered</option>
-                      </select>
-                    </div>
-
-                  </td>
                   <td>17-May-2016</td>
                   <td>3000 bath</td>
                   <td>
@@ -173,8 +56,10 @@
               </table>
 
             </uib-tab>
-            <uib-tab index="2" heading="WaitingForAgreement">
-
+            <uib-tab index="2">
+              <uib-tab-heading>
+                <i class="fa fa-check-square-o"></i> Acceptance
+              </uib-tab-heading>
               <table class="table table-hover">
                 <thead>
                 <tr>
@@ -252,86 +137,10 @@
                 </tbody>
               </table>
             </uib-tab>
-            <uib-tab index="3" heading="TransactionValidating">
-              <table class="table table-hover">
-                <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Purchase Code</th>
-                  <th>Name</th>
-                  <th>Member type</th>
-                  <th>Status</th>
-                  <th>Order date</th>
-                  <th>Total price</th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>213123</td>
-                  <td>Doe</td>
-                  <td>Retail</td>
-                  <td>
-                    <div class="form-group">
-                      <select class="form-control">
-                        <option>Producing</option>
-                        <option>Waiting</option>
-                        <option>Delivered</option>
-                      </select>
-                    </div>
-
-                  </td>
-                  <td>17-May-2016</td>
-                  <td>3000 bath</td>
-                  <td>
-                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-eye"></i>
-                    </button>
-                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-cog"></i>
-                    </button>
-                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-times"></i>
-                    </button>
-
-                  </td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>213123</td>
-                  <td>Doe</td>
-                  <td>Retail</td>
-                  <td>
-                    <div class="form-group">
-                      <select class="form-control">
-                        <option>Producing</option>
-                        <option>Waiting</option>
-                        <option>Delivered</option>
-                      </select>
-                    </div>
-
-                  </td>
-                  <td>17-May-2016</td>
-                  <td>3000 bath</td>
-                  <td>
-                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-eye"></i>
-                    </button>
-                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-cog"></i>
-                    </button>
-                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
-                      <i class="fa fa-times"></i>
-                    </button>
-
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-
-            </uib-tab>
-            <uib-tab index="4" heading="TransactionValid">
+            <uib-tab index="3">
+              <uib-tab-heading>
+                <i class="fa fa-exchange"></i> Validation
+              </uib-tab-heading>
               <table class="table table-hover">
                 <thead>
                 <tr>
@@ -410,7 +219,10 @@
               </table>
 
             </uib-tab>
-            <uib-tab index="5" heading="InProgress">
+            <uib-tab index="4">
+              <uib-tab-heading>
+                <i class="fa fa-check-square"></i> Confirm
+              </uib-tab-heading>
               <table class="table table-hover">
                 <thead>
                 <tr>
@@ -489,7 +301,10 @@
               </table>
 
             </uib-tab>
-            <uib-tab index="6" heading="Delivered">
+            <uib-tab index="5">
+              <uib-tab-heading>
+                <i class="fa fa-tasks"></i> In Progress
+              </uib-tab-heading>
               <table class="table table-hover">
                 <thead>
                 <tr>
@@ -568,7 +383,92 @@
               </table>
 
             </uib-tab>
-            <uib-tab index="7" heading="Success">
+            <uib-tab index="6">
+              <uib-tab-heading>
+                <i class="fa fa-bus"></i> Delivered
+              </uib-tab-heading>
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Purchase Code</th>
+                  <th>Name</th>
+                  <th>Member type</th>
+                  <th>Status</th>
+                  <th>Order date</th>
+                  <th>Total price</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>213123</td>
+                  <td>Doe</td>
+                  <td>Retail</td>
+                  <td>
+                    <div class="form-group">
+                      <select class="form-control">
+                        <option>Producing</option>
+                        <option>Waiting</option>
+                        <option>Delivered</option>
+                      </select>
+                    </div>
+
+                  </td>
+                  <td>17-May-2016</td>
+                  <td>3000 bath</td>
+                  <td>
+                    <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-eye"></i>
+                    </button>
+                    <button class="btn btn-circle btn-primary" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                    <button class="btn btn-circle btn-danger" data-toggle="modal" data-target="#myModal">
+                      <i class="fa fa-times"></i>
+                    </button>
+
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+            </uib-tab>
+            <uib-tab index="7">
+              <uib-tab-heading>
+                <i class="fa fa-smile-o"></i> Success!
+              </uib-tab-heading>
               <table class="table table-hover">
                 <thead>
                 <tr>

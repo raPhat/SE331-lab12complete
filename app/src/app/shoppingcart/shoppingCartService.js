@@ -20,7 +20,11 @@
     return $resource('/shoppingcart/:action/:id', {id:'@_id'}, {
       addToCart: {
         method: 'POST',
-        params: {'action': 'addToCart'}
+        params: {'action': 'addToCart', id: '@_id'}
+      },
+      addToCartNew: {
+        method: 'POST',
+        params: {'action': 'addToCartNew', id: '@id'}
       },
       saveCart:{
         method: 'POST',

@@ -28,7 +28,12 @@
           <div class="detail">
             <div class="price">{{ product.totalPrice }} <span>BAHT</span></div>
             <div class="name">
-              {{ product.name }}
+                    <span ng-show="checkLocale('th')">
+                       {{ product.nameTh }}
+                    </span>
+                    <span ng-show="checkLocale('en')">
+                       {{ product.name }}
+                    </span>
             </div>
           </div>
           <div class="img"

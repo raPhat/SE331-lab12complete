@@ -77,7 +77,7 @@
     }
 
     vm.getLength = function (order , num) {
-      return order.progresses.length == num;
+      return order.length == num;
     }
   }
 })();

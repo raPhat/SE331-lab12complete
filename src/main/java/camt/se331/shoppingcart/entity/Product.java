@@ -1,6 +1,9 @@
 package camt.se331.shoppingcart.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.*;
+import org.hibernate.annotations.CascadeType;
 
 import javax.persistence.*;
 import javax.persistence.Entity;
@@ -25,6 +28,18 @@ public class Product implements Comparable{
     Double wholesalePrice;
 
 
+    @ManyToMany
+    @Cascade(CascadeType.ALL)
+    @JsonBackReference
+    private Set<Article> articles = new HashSet<>();
+
+    public Set<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(Set<Article> articles) {
+        this.articles = articles;
+    }
 
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
