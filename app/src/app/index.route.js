@@ -64,7 +64,7 @@
       }).
       when('/admin/OrderManagement', {
         templateUrl: 'app/admin/OrderManagement/OrderManagement.html',
-        controller: 'AdminController',
+        controller: 'OrderManagementController',
         controllerAs: 'vm'
       }).
       when('/admin/ArticleManagement', {

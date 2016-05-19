@@ -67,6 +67,7 @@ public class ArticleController {
     public @ResponseBody Article add(@RequestParam("topic")String topic,@RequestParam("content")String content,@RequestParam("username")String username){
         Article article = new Article(topic,content);
         article.setUser( userService.findByUserName( username ) );
+        //article.getProductSet().add( productService.getProduct(1l) );
         return articleService.addArticle(article);
     }
     @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)

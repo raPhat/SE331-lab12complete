@@ -417,6 +417,48 @@ $icon-font-path: "../../bower_components/bootstrap-sass/assets/fonts/bootstrap/"
       display: inline;
       border-right: 1px solid rgba(255, 255, 255, 0.35);
       margin-right: 15px;
+      .uldd {
+        -webkit-margin-before: 1em;
+        -webkit-margin-after: 1em;
+        -webkit-margin-start: 0px;
+        -webkit-margin-end: 0px;
+        -webkit-padding-start: 40px;
+        left: calc(50% - 90px);
+        max-width: 50px;
+        padding: 5px 0;
+        margin: 2px 0 0;
+        font-size: 14px;
+        list-style: none;
+        background-color: #fff;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        li {
+          display: list-item;
+          text-align: -webkit-match-parent;
+          a {
+            display: block;
+            padding: 3px 20px;
+            clear: both;
+            font-weight: 400;
+            line-height: 1.42857143;
+            color: #333;
+            white-space: nowrap;
+            span {
+              color: #AAA;
+            }
+          }
+          &.logout {
+            a {
+              font-weight: bold;
+            }
+            border-top: 1px solid #DDD;
+          }
+        }
+      }
     }
     .rightMenu {
       position: relative;

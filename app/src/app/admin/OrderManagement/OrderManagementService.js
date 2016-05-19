@@ -11,10 +11,15 @@
 
   /** @ngInject */
   function OrderManagementService($resource){
-    return $resource('/Order/:id', { id: '@_id' }, {
-      update: {
-        method: 'PUT' // this method issues a PUT request
-      }});
+    return $resource('/shoppingcart/:action/:id:name', { id: '@_id' }, {
+      progress: {
+        method: 'GET',
+        params:{
+          action:'progress'
+        },
+        isArray: true
+      }
+    });
 
   }
 

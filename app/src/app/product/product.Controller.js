@@ -76,14 +76,21 @@
 
       var answer = confirm("Do you want to add the product to cart?");
       if (answer) {
-        console.log($rootScope.shoppingCart);
-        cartManagement.addToCart({id:product.id},$rootScope.shoppingCart, function (shoppingCart) {
-          //success event
-          $rootScope.shoppingCart = shoppingCart;
-
-        }, function () {
-          // fail event
-        })
+        console.log(product.id);
+        if( $rootScope.shoppingCart.selectedProducts === undefined ) {
+          cartManagement.addToCartNew({id:product.id}, function (shoppingCart) {
+            $rootScope.shoppingCart = shoppingCart;
+            console.log( shoppingCart )
+          }, function () {
+          })
+        } else {
+          cartManagement.addToCart({id:product.id},$rootScope.shoppingCart, function (shoppingCart) {
+            $rootScope.shoppingCart = shoppingCart;
+            console.log( shoppingCart )
+          }, function (er) {
+            console.log( er );
+          })
+        }
       }
 
     }
