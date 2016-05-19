@@ -10,4 +10,5 @@ import java.util.List;
  */
 public interface ProgressRepository extends JpaRepository<Progress,Long> {
     List<Progress> findByProgressNameContainingIgnoreCase(String topic);
+    List<Progress> findByCart(Long id);
 }

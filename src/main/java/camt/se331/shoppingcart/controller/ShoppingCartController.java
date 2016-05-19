@@ -1,10 +1,8 @@
 package camt.se331.shoppingcart.controller;
 
-import camt.se331.shoppingcart.entity.Product;
-import camt.se331.shoppingcart.entity.Progress;
-import camt.se331.shoppingcart.entity.ShoppingCart;
-import camt.se331.shoppingcart.entity.User;
+import camt.se331.shoppingcart.entity.*;
 import camt.se331.shoppingcart.service.ProductService;
+import camt.se331.shoppingcart.service.ProgressService;
 import camt.se331.shoppingcart.service.ShoppingCartService;
 import camt.se331.shoppingcart.service.UserService;
 import org.hibernate.internal.util.compare.CalendarComparator;
@@ -20,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Calendar;
+import java.util.List;
 
 /**
  * Created by Dto on 4/6/2015.
@@ -35,6 +34,8 @@ public class ShoppingCartController {
     ProductService productService;
     @Autowired
     UserService userService;
+    @Autowired
+    ProgressService progressService;
 
 
 
@@ -59,16 +60,22 @@ public class ShoppingCartController {
     public ShoppingCart saveCart(@RequestBody ShoppingCart shoppingCart){
         User user = userService.findByUserName(shoppingCart.getUser().getUsername());
         shoppingCart.setUser(user);
-        return shoppingCartService.addShoppingCart(shoppingCart);
+        ShoppingCart cart = shoppingCartService.addShoppingCart(shoppingCart);
+        Progress progress = new Progress("",false,"WaitingForCalculation");
+        progress.setCart(cart);
+        progressService.addProgress(progress);
+        return cart;
     }
 
-
-    @RequestMapping(value = "/progress/{text}", method = RequestMethod.GET)
-    public Progress addProgress(@PathVariable("text") String text) {
-        Progress progress = new Progress(text,false,"first");
-        ShoppingCart cart = shoppingCartService.findById(1l);
-        progress.setCart( cart );
-        return shoppingCartService.addProgress(progress);
+    @RequestMapping(value = "/progress/{id}", method = RequestMethod.GET)
+    public List<Progress> list(@PathVariable("id") Long id) {
+        return progressService.getProgressesByCart(id);
     }
+
+    @RequestMapping(value = "/progress", method = RequestMethod.GET)
+    public List<Progress> listAll() {
+        return progressService.getProgresses();
+    }
+
 
 }

@@ -11,6 +11,7 @@
     <div class="panel-heading">ShoppingCart</div>
     <div class="panel-body">
 
+
       <div class="list-group" ng-show="vm.orders">
         <div class="order" ng-repeat=" order in vm.orders ">
           <a href="#" class="list-group-item active">
@@ -24,52 +25,50 @@
           <div class="list-group-item">
             <p class="list-group-item-text">
               <uib-tabset active="activeJustified" justified="true">
-                <uib-tab index="0" disable="false">
+                <uib-tab index="0" active="vm.getLength(order,1)" disable=" !order.progresses[0] ">
                   <uib-tab-heading>
                     <i class="fa fa-calculator"></i> Calculation
                   </uib-tab-heading>
-                  I've got an HTML heading, and a select callback. Pretty cool!
+                  
                 </uib-tab>
-                <uib-tab index="1" disable="true">
+                <uib-tab index="1" active="vm.getLength(order,2)" disable=" !order.progresses[1] ">
                   <uib-tab-heading>
                     <i class="fa fa-check-square-o"></i> Agreement
                   </uib-tab-heading>
                   I've got an HTML heading, and a select callback. Pretty cool!
                 </uib-tab>
-                <uib-tab index="2" disable="true">
+                <uib-tab index="2" active="vm.getLength(order,3)" disable=" !order.progresses[2] ">
                   <uib-tab-heading>
                     <i class="fa fa-exchange"></i> Transaction
                   </uib-tab-heading>
                   I've got an HTML heading, and a select callback. Pretty cool!
                 </uib-tab>
-                <uib-tab index="3" disable="true">
+                <uib-tab index="3" active="vm.getLength(order,4)" disable=" !order.progresses[3] ">
                   <uib-tab-heading>
                     <i class="fa fa-check-square"></i> Validation
                   </uib-tab-heading>
                   I've got an HTML heading, and a select callback. Pretty cool!
                 </uib-tab>
-                <uib-tab index="4" disable="true">
+                <uib-tab index="4" active="vm.getLength(order,5)" disable=" !order.progresses[4] ">
                   <uib-tab-heading>
                     <i class="fa fa-tasks"></i> In Progress
                   </uib-tab-heading>
                   I've got an HTML heading, and a select callback. Pretty cool!
                 </uib-tab>
-                <uib-tab index="5" disable="true">
+                <uib-tab index="5" active="vm.getLength(order,6)" disable=" !order.progresses[5] ">
                   <uib-tab-heading>
                     <i class="fa fa-bus"></i> Delivered
                   </uib-tab-heading>
                   I've got an HTML heading, and a select callback. Pretty cool!
                 </uib-tab>
-                <uib-tab index="6" disable="true">
+                <uib-tab index="6" active="vm.getLength(order,7)" disable=" !order.progresses[6] ">
                   <uib-tab-heading>
                     <i class="fa fa-smile-o"></i> Success!
                   </uib-tab-heading>
                   I've got an HTML heading, and a select callback. Pretty cool!
                 </uib-tab>
               </uib-tabset>
-
             </p>
-            <h5 class="list-group-item-heading">List group item heading</h5>
           </div>
         </div>
       </div>
