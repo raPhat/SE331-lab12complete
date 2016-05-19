@@ -2,8 +2,6 @@ logs/*
 !.gitkeep
 node_modules/
 bower_components/
-!app/bower_components/simpleImageGallery/css/fblindSimpleImageGallery.css
-!app/bower_components/simpleImageGallery/js/fblindSimpleImageGallery.js
 tmp
 .DS_Store
 .idea
