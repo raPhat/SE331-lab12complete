@@ -145,17 +145,4 @@ public class Progress {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "Progress{" +
-                "id=" + id +
-                ", message='" + message + '\'' +
-                ", progressStatus=" + progressStatus +
-                ", progressName='" + progressName + '\'' +
-                ", cart=" + cart +
-                ", createdDate=" + createdDate +
-                ", endDate=" + endDate +
-                ", images=" + images +
-                '}';
-    }
 }

@@ -11,7 +11,6 @@ import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
-import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -50,17 +49,11 @@ public class ShoppingCartController {
         return shoppingCartService.addShoppingCart(cart);
     }
 
-    @RequestMapping(value = "/addToCart/{id}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/addToCart/{id}", method = RequestMethod.POST)
     public ShoppingCart addProduct(@PathVariable("id") Long id,@RequestBody ShoppingCart shoppingCart, BindingResult bindingResult, Model model, HttpServletRequest httpServletRequest) {
 
         Product product = productService.getProduct(id);
         return shoppingCartService.addSelectedProduct(shoppingCart, product);
-    }
-
-    @RequestMapping(value = "/addToCartNew/{id}", method = RequestMethod.POST)
-    public ShoppingCart addProductNew(@PathVariable("id") Long id) {
-        Product product = productService.getProduct(id);
-        return shoppingCartService.addSelectedProduct(new ShoppingCart(), product);
     }
 
     @RequestMapping(value="/saveCart",method= RequestMethod.POST)
@@ -68,7 +61,7 @@ public class ShoppingCartController {
         User user = userService.findByUserName(shoppingCart.getUser().getUsername());
         shoppingCart.setUser(user);
         ShoppingCart cart = shoppingCartService.addShoppingCart(shoppingCart);
-        Progress progress = new Progress("",false,"Calculation");
+        Progress progress = new Progress("",false,"WaitingForCalculation");
         progress.setCart(cart);
         progressService.addProgress(progress);
         return cart;
@@ -77,11 +70,6 @@ public class ShoppingCartController {
     @RequestMapping(value = "/progress/{id}", method = RequestMethod.GET)
     public List<Progress> list(@PathVariable("id") Long id) {
         return progressService.getProgressesByCart(id);
-    }
-
-    @RequestMapping(value = "/progress/{name}", method = RequestMethod.GET)
-    public List<Progress> listByName(@PathVariable("name") String name) {
-        return progressService.getProgressesByProgressName(name);
     }
 
     @RequestMapping(value = "/progress", method = RequestMethod.GET)
