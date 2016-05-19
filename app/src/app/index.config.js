@@ -28,7 +28,6 @@
         'type': '@',
         'goto': '@'
       }
-
     }
   }).directive('headerNotification', function () {
     return {
@@ -59,40 +58,50 @@
       }
     }
   }).directive('sidebar', ['$location', function () {
-    return {
-      templateUrl: 'app/admin/directive/sidebar.html',
-      restrict: 'E',
-      replace: true,
-      scope: {},
-      controller: function ($scope) {
-        $scope.selectedMenu = 'dashboard';
-        $scope.collapseVar = 0;
-        $scope.multiCollapseVar = 0;
+      return {
+        templateUrl: 'app/admin/directive/sidebar.html',
+        restrict: 'E',
+        replace: true,
+        scope: {},
+        controller: function ($scope) {
+          $scope.selectedMenu = 'dashboard';
+          $scope.collapseVar = 0;
+          $scope.multiCollapseVar = 0;
 
-        $scope.check = function (x) {
+          $scope.check = function (x) {
 
-          if (x == $scope.collapseVar)
-            $scope.collapseVar = 0;
-          else
-            $scope.collapseVar = x;
-        };
+            if (x == $scope.collapseVar)
+              $scope.collapseVar = 0;
+            else
+              $scope.collapseVar = x;
+          };
 
-        $scope.multiCheck = function (y) {
+          $scope.multiCheck = function (y) {
 
-          if (y == $scope.multiCollapseVar)
-            $scope.multiCollapseVar = 0;
-          else
-            $scope.multiCollapseVar = y;
-        };
+            if (y == $scope.multiCollapseVar)
+              $scope.multiCollapseVar = 0;
+            else
+              $scope.multiCollapseVar = y;
+          };
+        }
       }
-    }
-  }]).directive('timeline', function () {
-    return {
-      templateUrl: 'app/admin/directive/timeline.html',
-      restrict: 'E',
-      replace: true
-    }
-  })
+    }])
+    .directive('timeline', function () {
+      return {
+        templateUrl: 'app/admin/directive/timeline.html',
+        restrict: 'E',
+        replace: true
+      }
+    })
+
+    .directive('myD', function () {
+      return {
+        templateUrl: 'app/admin/directive/d.html',
+        restrict: 'E',
+        replace: true
+      }
+    })
+
     .config([
       'datetimepickerProvider',
       function (datetimepickerProvider) {

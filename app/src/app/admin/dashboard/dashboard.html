@@ -1,3 +1,124 @@
+<!--Calculation-->
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3 class="page-header">Calculation</h3>
+      <div>
+        <h4>Purchase code#12331313</h4>
+        <ul>
+          <li>
+            product name
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--/Calculation-->
+
+<!--Acceptance-->
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3 class="page-header">Acceptance</h3>
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Purchase code#12331313</h4>
+          <div class="col-xs-6 text-left">
+            <h5>Order detailed</h5>
+          </div>
+          <div class="col-xs-6 text-right">
+            <button class="btn btn-circle btn-default" data-toggle="modal" data-target="#AcceptanceModal">
+              <i class="fa fa-eye"></i>
+            </button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h4>Transportation fee</h4>
+          9000
+        </div>
+      </div>
+      <div class="text-right">
+        <button class="btn btn-success">Agree</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- Acceptance -->
+  <div class="modal fade" id="AcceptanceModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title" id="myModalAcceptance"></h3>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+            <div class="form-group">
+              <label><h4>Order</h4></label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-success">Confirm</button>
+          <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!-- /.Acceptance -->
+</div>
+<!--/Acceptance-->
+
+<!--Validation-->
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3 class="page-header">Validation</h3>
+      <div>
+        <h4>Purchase code</h4>
+        <div class="col-md-12">
+          <div class="col-md-6">
+            pc 01
+          </div>
+          <div class="col-md-6 text-right">
+            <button class="btn btn-default" data-toggle="modal" data-target="#ValidationModal">Upload slip
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ValidationModal -->
+  <div class="modal fade" id="ValidationModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title" id="myModalLabel">Upload slip</h3>
+        </div>
+        <div class="modal-body">
+          <form role="form">
+           <div class="form-group">
+              <label><h4>Picture</h4></label>
+              <input type="file">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-success">Confirm</button>
+          <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+        </div>
+
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+  <!-- /.ValidationModal -->
+
+</div>
+<!--/Validation-->
+
 <div class="row">
   <div class="col-lg-12">
     <h1 class="page-header">Report</h1>
@@ -23,48 +144,49 @@
 </div>
 <div class="row">
   <div class="col-lg-6">
-  <div class="panel-default">
-    <div class="panel-body">
-      <label ><h3>Start date</h3></label>
-      <div class="form-group">
-        <div class="input-group" datetimepicker
-             datetimepicker-options="{{ ctrl.datetimepicker_options }}"
+    <div class="panel-default">
+      <div class="panel-body">
+        <label><h3>Start date</h3></label>
+        <div class="form-group">
+          <div class="input-group" datetimepicker
+               datetimepicker-options="{{ ctrl.datetimepicker_options }}"
 
-             placeholder="Start date.."
-             name="time"
-             ng-model="ctrl.time">
-          <input type="text" class="form-control input-group-sm" /> <span class="input-group-addon ">
+               placeholder="Start date.."
+               name="time"
+               ng-model="ctrl.time">
+            <input type="text" class="form-control input-group-sm"/> <span class="input-group-addon ">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
   </div>
-  </div>
   <div class="col-lg-6">
-  <div class="panel-default">
-    <div class="panel-body">
-      <label ><h3>End date</h3></label>
-      <div class="form-group">
-        <div class="input-group" datetimepicker
-             datetimepicker-options="{{ ctrl.datetimepicker_options }}"
+    <div class="panel-default">
+      <div class="panel-body">
+        <label><h3>End date</h3></label>
+        <div class="form-group">
+          <div class="input-group" datetimepicker
+               datetimepicker-options="{{ ctrl.datetimepicker_options }}"
 
-             placeholder="End date.."
-             name="time"
-             ng-model="ctrl.time">
-          <input type="text" class="form-control input-group-sm" /> <span class="input-group-addon ">
+               placeholder="End date.."
+               name="time"
+               ng-model="ctrl.time">
+            <input type="text" class="form-control input-group-sm"/> <span class="input-group-addon ">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-  </div>
 
-  <div class="container text-center">
+<div class="container text-center">
   <button type="submit" class="btn btn-default btn-success">Submit</button>
-  <button type="reset" class="btn btn-default ">Reset</button></div>
+  <button type="reset" class="btn btn-default ">Reset</button>
+</div>
 </div>
 <div class="row">
 
