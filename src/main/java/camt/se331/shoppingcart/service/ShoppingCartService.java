@@ -18,6 +18,7 @@ public interface ShoppingCartService {
     ShoppingCart deleteShoppingCart(ShoppingCart shoppingCart);
     ShoppingCart addSelectedProduct(ShoppingCart shoppingCart, Product product);
 
+    ShoppingCart updateShoppingCart(ShoppingCart shoppingCart);
     Progress addProgress(Progress progress);
 
 }

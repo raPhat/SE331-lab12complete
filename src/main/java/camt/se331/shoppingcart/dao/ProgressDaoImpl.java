@@ -26,6 +26,19 @@ public class ProgressDaoImpl implements ProgressDao {
     }
 
     @Override
+    public List<Progress> getProgressesByCart(Long id) {
+        List<Progress> progresses = progressRepository.findAll();
+        for ( Progress p : progresses ) {
+            if( p.getCart().getId().intValue() != id.intValue() ) {
+                progresses.remove( p );
+            }
+        }
+        return progresses;
+
+//        return progressRepository.findByCart( id );
+    }
+
+    @Override
     public Progress getProgress(Long id) {
         return progressRepository.findOne(id);
     }

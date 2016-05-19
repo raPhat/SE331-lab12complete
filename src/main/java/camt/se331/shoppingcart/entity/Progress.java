@@ -1,5 +1,6 @@
 package camt.se331.shoppingcart.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -20,14 +21,9 @@ public class Progress {
     boolean progressStatus;
     String progressName;
 
-    @ManyToOne
-    private User admin;
-
-    @ManyToOne
-    private User customer;
-
-    @ManyToOne
-    private ShoppingCart cart;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonBackReference
+    ShoppingCart cart;
 
     @Temporal(TemporalType.TIMESTAMP)
     Date createdDate;
@@ -49,14 +45,6 @@ public class Progress {
         this.setCreatedDate(Calendar.getInstance().getTime());
     }
 
-    public Progress(String message, boolean progressStatus, String progressName, User admin, User customer) {
-        this.message = message;
-        this.progressStatus = progressStatus;
-        this.progressName = progressName;
-        this.admin = admin;
-        this.customer = customer;
-        this.setCreatedDate(Calendar.getInstance().getTime());
-    }
 
     public Long getId() {
         return id;
@@ -88,22 +76,6 @@ public class Progress {
 
     public void setProgressName(String progressName) {
         this.progressName = progressName;
-    }
-
-    public User getAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(User admin) {
-        this.admin = admin;
-    }
-
-    public User getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(User customer) {
-        this.customer = customer;
     }
 
     public Date getCreatedDate() {
@@ -151,9 +123,6 @@ public class Progress {
             return false;
         if (getProgressName() != null ? !getProgressName().equals(progress.getProgressName()) : progress.getProgressName() != null)
             return false;
-        if (getAdmin() != null ? !getAdmin().equals(progress.getAdmin()) : progress.getAdmin() != null) return false;
-        if (getCustomer() != null ? !getCustomer().equals(progress.getCustomer()) : progress.getCustomer() != null)
-            return false;
         if (getCart() != null ? !getCart().equals(progress.getCart()) : progress.getCart() != null) return false;
         if (getCreatedDate() != null ? !getCreatedDate().equals(progress.getCreatedDate()) : progress.getCreatedDate() != null)
             return false;
@@ -169,12 +138,11 @@ public class Progress {
         result = 31 * result + (getMessage() != null ? getMessage().hashCode() : 0);
         result = 31 * result + (isProgressStatus() ? 1 : 0);
         result = 31 * result + (getProgressName() != null ? getProgressName().hashCode() : 0);
-        result = 31 * result + (getAdmin() != null ? getAdmin().hashCode() : 0);
-        result = 31 * result + (getCustomer() != null ? getCustomer().hashCode() : 0);
         result = 31 * result + (getCart() != null ? getCart().hashCode() : 0);
         result = 31 * result + (getCreatedDate() != null ? getCreatedDate().hashCode() : 0);
         result = 31 * result + (getEndDate() != null ? getEndDate().hashCode() : 0);
         result = 31 * result + (getImages() != null ? getImages().hashCode() : 0);
         return result;
     }
+
 }

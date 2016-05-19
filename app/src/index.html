@@ -104,7 +104,7 @@
                   </a>
                 </li>
               </div>
-              <li class="rightMenu hidden-xs" ng-show="user">
+              <li class="rightMenu hidden-xs" ng-show="user" ng-hide="hasRole('admin')">
                 <a href="" class="cart cartModal">
                   <i class="glyphicon glyphicon-shopping-cart"></i> <span class="hidden-xs">CART</span>
                     <span class="badge" ng-show="shoppingCart.selectedProducts.length>0">
@@ -131,11 +131,11 @@
                     <span class="glyphicon glyphicon-bell"> </span>
                     Notifications
                   </a></li>
-                  <li><a href="#/shoppingCart">
+                  <li ng-hide="hasRole('admin')"><a href="#/shoppingCart">
                     <span class="glyphicon glyphicon-th-list"> </span>
                     Orders
                   </a></li>
-                  <li><a href="/admin.html#/admin/">
+                  <li ng-show="hasRole('admin')"><a href="/admin.html#/admin/">
                     <span class="glyphicon glyphicon-th"> </span>
                     Administrator
                   </a></li>

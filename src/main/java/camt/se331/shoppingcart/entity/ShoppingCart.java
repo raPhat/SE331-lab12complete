@@ -2,6 +2,7 @@ package camt.se331.shoppingcart.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -22,14 +23,17 @@ public class ShoppingCart {
     @JsonBackReference
     User user;
 
-    @OneToMany(mappedBy = "cart")
-    Set<Progress> progresses = new HashSet<>();
+    @OneToMany(mappedBy = "cart", fetch = FetchType.EAGER)
+    @Cascade(CascadeType.ALL)
+    @Column(nullable = true)
+    @JsonManagedReference
+    List<Progress> progresses = new ArrayList<>();
 
-    public Set<Progress> getProgresses() {
+    public List<Progress> getProgresses() {
         return progresses;
     }
 
-    public void setProgresses(Set<Progress> progresses) {
+    public void setProgresses(List<Progress> progresses) {
         this.progresses = progresses;
     }
 
@@ -81,6 +85,8 @@ public class ShoppingCart {
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (selectedProducts != null ? !selectedProducts.equals(that.selectedProducts) : that.selectedProducts != null)
             return false;
+        if (progresses != null ? !progresses.equals(that.progresses) : that.progresses != null)
+            return false;
         return !(purchaseDate != null ? !purchaseDate.equals(that.purchaseDate) : that.purchaseDate != null);
 
     }
@@ -89,6 +95,7 @@ public class ShoppingCart {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (selectedProducts != null ? selectedProducts.hashCode() : 0);
+        result = 31 * result + (progresses != null ? progresses.hashCode() : 0);
         result = 31 * result + (purchaseDate != null ? purchaseDate.hashCode() : 0);
         return result;
     }

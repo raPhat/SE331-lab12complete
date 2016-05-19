@@ -45,4 +45,9 @@ public class ShoppingCartDaoImpl implements ShoppingCartDao {
     public ShoppingCart deleteShoppingCart(ShoppingCart shoppingCart) {
         return null;
     }
+
+    @Override
+    public ShoppingCart updateShoppingCart(ShoppingCart shoppingCart) {
+        return shoppingCartRepository.save(shoppingCart);
+    }
 }

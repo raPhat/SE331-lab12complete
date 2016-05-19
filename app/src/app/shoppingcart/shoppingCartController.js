@@ -7,7 +7,7 @@
 
 
   /** @ngInject */
-  function ShoppingCartController(shoppingCartService,cartManagement,$scope, $rootScope, $cookies,$log, queryUserService, $http ) {
+  function ShoppingCartController(shoppingCartService,cartManagement,$scope, $rootScope, $cookies,$log, queryUserService, $timeout ) {
     var vm = this;
 
     var user = $cookies.get('user');
@@ -25,7 +25,7 @@
 
     queryUserService.query({ id: user }, function(data) {
       vm.orders = data;
-      console.log(vm.orders);
+      console.log( vm.orders );
     });
 
 
@@ -38,7 +38,6 @@
     }
 
     vm.NewTotalEach = function (index) {
-      console.log(1);
       return $rootScope.shoppingCart.selectedProducts[index].product.totalPrice * $rootScope.shoppingCart.selectedProducts[index].amount;
     };
 
@@ -77,6 +76,8 @@
       return total;
     }
 
-
+    vm.getLength = function (order , num) {
+      return order.progresses.length == num;
+    }
   }
 })();

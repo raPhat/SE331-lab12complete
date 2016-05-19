@@ -66,6 +66,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
+    public ShoppingCart updateShoppingCart(ShoppingCart shoppingCart) {
+        return shoppingCartDao.updateShoppingCart(shoppingCart);
+    }
+
+    @Override
     public Progress addProgress(Progress progress) {
         return progressDao.addProgress(progress);
     }

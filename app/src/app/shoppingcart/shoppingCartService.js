@@ -25,6 +25,11 @@
       saveCart:{
         method: 'POST',
         params: {'action' : 'saveCart'}
+      },
+      progresses:{
+        method: 'GET',
+        params: {'action' : 'progress'},
+        isArray: true
       }
     })
   }

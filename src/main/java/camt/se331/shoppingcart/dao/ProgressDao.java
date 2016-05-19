@@ -11,6 +11,7 @@ import java.util.List;
 public interface ProgressDao {
     List<Progress> getProgresses();
     List<Progress> getProgressesByProgressName(String name);
+    List<Progress> getProgressesByCart(Long id);
     Progress getProgress(Long id);
     Progress addProgress(Progress progress);
     Progress deleteProgress(Progress progress);
