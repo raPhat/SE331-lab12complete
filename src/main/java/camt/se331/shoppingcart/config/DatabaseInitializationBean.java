@@ -61,7 +61,6 @@ public class DatabaseInitializationBean implements InitializingBean {
         Role adminRole = new Role("admin");
         Role userRole = new Role("retail");
         Role userRole2 = new Role("wholesale");
-        Role userR = new Role("user");
 
 
         User admin = new User();

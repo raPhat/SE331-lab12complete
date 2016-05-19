@@ -2,9 +2,11 @@ package camt.se331.shoppingcart.service;
 
 import camt.se331.shoppingcart.dao.ArticleDao;
 import camt.se331.shoppingcart.entity.Article;
+import camt.se331.shoppingcart.entity.Image;
 import camt.se331.shoppingcart.entity.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -51,6 +53,16 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public Article addProduct(Article article, Product product) {
         article.getProductSet().add(product);
+        articleDao.updateArticle(article);
+        return article;
+    }
+
+
+    @Override
+    @Transactional
+    public Article addImage(Article article, Image image) {
+        image=ImageUtil.resizeImage(image,1024);
+        article.getImages().add(image);
         articleDao.updateArticle(article);
         return article;
     }

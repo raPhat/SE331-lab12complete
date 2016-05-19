@@ -13,7 +13,7 @@
   }
 
   /** @ngInject */
-  function runSecurity($rootScope, $location, $cookies, UserService) {
+  function runSecurity($rootScope, $location, $cookies, UserService,$window,$translate) {
     var removeErrorMsg = $rootScope.$on('$viewContentLoaded', function () {
       delete $rootScope.error;
     });
@@ -52,10 +52,48 @@
         $rootScope.user = user;
         $cookies.put('user', user.name);
         $location.path(originalPath);
+
+        $rootScope.checkAdmin();
+
       })
+    } else {
+      var sp = $location.path().split('/');
+      if ( sp.length > 1 )  {
+        if( sp[1] == 'admin' ) {
+          $window.location.href = '/';
+        }
+      }
     }
+
     $rootScope.initialized = true;
     $rootScope.shoppingCart = {};
+    $rootScope.$on('$routeChangeStart', function (event, next, current) {
+      if( $rootScope.user !== undefined ) {
+        $rootScope.checkAdmin();
+      }
+    });
+
+    $rootScope.checkAdmin = function() {
+      var sp = $location.path().split('/');
+      if ( sp.length > 1 )  {
+        if( sp[1] == 'admin' && !$rootScope.hasRole( "admin" ) ) {
+          $window.location.href = '/';
+        }
+      }
+    }
+    $rootScope.checkUser = function() {
+      if( !$rootScope.hasRole( "retail" ) && !$rootScope.hasRole( "wholesale" ) ) {
+        $window.location.href = '/';
+      }
+    }
+
+    $rootScope.checkLocale = function( lang ) {
+      if( $translate.use() === lang ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
   }
 
 

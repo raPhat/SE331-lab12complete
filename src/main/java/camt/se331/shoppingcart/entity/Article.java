@@ -34,6 +34,18 @@ public class Article {
     @Temporal(TemporalType.TIMESTAMP)
     Date createdDate;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    Set<Image> images = new HashSet<>();
+
+    public Set<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<Image> images) {
+        this.images = images;
+    }
+
     public Article() {
     }
 

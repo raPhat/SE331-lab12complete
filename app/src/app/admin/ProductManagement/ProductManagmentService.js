@@ -6,6 +6,7 @@
   angular
     .module('app')
     .factory('productService', productService)
+    .factory('productImageService', productImageService)
     .factory('totalCalService', totalCalService)
     .factory('queryProductService', queryProductService);
 
@@ -17,6 +18,13 @@
         method: 'PUT' // this method issues a PUT request
       }
     });
+
+  }
+
+
+  /** @ngInject */
+  function productImageService($resource) {
+    return $resource('/product/delete/:id/:pid', {id: '@_id',pid: '@_pid'}, {});
 
   }
 

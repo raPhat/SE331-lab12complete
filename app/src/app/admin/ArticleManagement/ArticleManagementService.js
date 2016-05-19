@@ -6,6 +6,7 @@
   angular
     .module('app')
     .factory('ArticleAdminService', ArticleAdminService)
+    .factory('NewArticleService', NewArticleService)
     .factory('queryArticleAdminService', queryArticleAdminService);
 
 
@@ -18,6 +19,19 @@
     });
   }
 
+  /** @ngInject */
+  function NewArticleService($resource) {
+    return $resource('/article/:id', {id:'@_id'}, {
+      addArticle: {
+        method: 'POST',
+        params:{
+          topic:'@topic',
+          content: '@content',
+          username: '@username'
+        }
+      }
+    })
+  }
 
   /** @ngInject */
   function queryArticleAdminService($resource) {

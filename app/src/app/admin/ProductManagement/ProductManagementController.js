@@ -10,15 +10,20 @@
     .controller('editProductAdminController', editProductAdminController);
 
   /** @ngInject */
-  function ProductManagementController($scope, $rootScope) {
+  function ProductManagementController($scope, $rootScope, $window) {
     var vm = this;
+
+    vm.redirectToReload = function () {
+      $window.location.reload();
+    }
   }
 
   /** @ngInject */
   function addProductAdminController($scope, $location, $rootScope, productService, $timeout,$window) {
     $scope.product = {};
     $scope.addProduct = function (flowFiles) {
-
+      $scope.product.descriptionTh = escape($scope.product.descriptionTh);
+      $scope.product.nameTh = escape($scope.product.nameTh);
       productService.save($scope.product, function (data) {
 
         // after adding the object, add a new picture
@@ -26,7 +31,7 @@
 
         var productid = data.id;
         // set location
-        flowFiles.opts.target = 'http://192.186.1.8:8080/productImage/add';
+        flowFiles.opts.target = 'http://localhost:8080/productImage/add';
         flowFiles.opts.testChunks = false;
         flowFiles.opts.query = {productid: productid};
         flowFiles.upload();
@@ -60,6 +65,8 @@
       productService.get({id: id},
         // success function
         function (data) {
+          data.descriptionTh = unescape(data.descriptionTh);
+          data.nameTh = unescape(data.nameTh);
           $rootScope.currentProduct = data;
         }
       );
@@ -79,7 +86,7 @@
     vm.getNoPage = function () {
       var sum = 0;
       if (vm.products !== undefined) {
-        sum = vm.Math.round(vm.products.length / vm.groupPage);
+        sum = vm.Math.ceil(vm.products.length / vm.groupPage);
       }
       return new Array(sum);
     };
@@ -124,16 +131,34 @@
 
 
   /** @ngInject */
-  function editProductAdminController($scope, $window, $rootScope, productService) {
+  function editProductAdminController($scope, productImageService, $rootScope, productService,$timeout) {
 
-
-    $scope.editProduct = function () {
+    $scope.editProduct = function (flowFiles) {
       var product = $rootScope.currentProduct;
-      console.log(1);
-      productService.update({id: product.id}, product, function () {
-        $window.location.reload();
+      product.descriptionTh = escape(product.descriptionTh);
+      product.nameTh = escape(product.nameTh);
+      productService.update({id: product.id}, product, function (data) {
+        var productid = data.id;
+        // set location
+        flowFiles.opts.target = 'http://localhost:8080/productImage/add';
+        flowFiles.opts.testChunks = false;
+        flowFiles.opts.query = {productid: productid};
+        flowFiles.upload();
+        $timeout(function () {
+          // $message is the json response from the post
+        });
       });
     };
+
+    $scope.deleteImg = function (id) {
+      var answer = confirm("Do you want to delete the image?");
+      if (answer) {
+        productImageService.delete({id: id, pid:$rootScope.currentProduct.id}, function (data) {
+          console.log(data);
+          $rootScope.currentProduct = data;
+        })
+      }
+    }
 
 
   }

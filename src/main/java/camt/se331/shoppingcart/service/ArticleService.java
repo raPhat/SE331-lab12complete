@@ -1,6 +1,7 @@
 package camt.se331.shoppingcart.service;
 
 import camt.se331.shoppingcart.entity.Article;
+import camt.se331.shoppingcart.entity.Image;
 import camt.se331.shoppingcart.entity.Product;
 import camt.se331.shoppingcart.entity.User;
 
@@ -17,4 +18,5 @@ public interface ArticleService {
     Article updateArticle(Article article);
     List<Article> getArticlesByTopic(String topic);
     Article addProduct (Article article,Product product);
+    Article addImage (Article article,Image image);
 }

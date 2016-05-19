@@ -91,6 +91,9 @@
       $rootScope.shoppingCart.selectedProducts.splice(index, 1);
     }
 
+    vm.setCurrentProduct = function (product) {
+      $rootScope.currentProduct = product;
+    }
 
   }
 
